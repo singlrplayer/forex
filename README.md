@@ -1,0 +1,2 @@
+# forex
+ANN data learning
