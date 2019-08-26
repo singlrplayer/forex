@@ -7,8 +7,11 @@ class candleValues:
     candles = ['min','5min', '15min', '30min', 'hour', '4hour', 'day', 'month']
 
 
-    def myInit (self):
+    def myInit (self, y):
         for i in self.candles:
-            self.openVal[i] = self.closeVal[i] = self.hightVal[i] = self.lowVal[i] = 0
+            self.openVal[i] = y.openVal
+            self.closeVal[i] = y.closeVal
+            self.hightVal[i] = y.hightVal
+            self.lowVal[i] = y.lowVal
         return self
     

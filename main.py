@@ -15,7 +15,7 @@ y = myParsLine(files.source['f'].readline()) #вторую парсим чтоб
 date = olddate = y.date;
 time = oldtime = y.time
 candle = candleValues()
-candle.myInit()
+candle.myInit(y)
 olDopenVal = openVal = y.openVal; olDhightVal = hightVal = y.hightVal; olDlowVal = lowVal = y.lowVal; olDcloseVal = closeVal = y.closeVal
 j = j_min = 1
 itertools.islice(files.source['f'],1)
