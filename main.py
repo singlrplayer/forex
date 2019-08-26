@@ -6,6 +6,7 @@ import itertools
 from updMytime import updMytime
 from myParsLine import myParsLine
 from myFile import myFile
+from candleValues import candleValues
 
 files = myFile()
 files.myInit()
@@ -13,6 +14,8 @@ files.Qfiles['minFile'].write(files.source['f'].readline()) #первую стр
 y = myParsLine(files.source['f'].readline()) #вторую парсим чтоб задать стартовые значения (надо будет сделать это как-то изящнее)
 date = olddate = y.date;
 time = oldtime = y.time
+candle = candleValues()
+candle.myInit()
 olDopenVal = openVal = y.openVal; olDhightVal = hightVal = y.hightVal; olDlowVal = lowVal = y.lowVal; olDcloseVal = closeVal = y.closeVal
 j = j_min = 1
 itertools.islice(files.source['f'],1)
@@ -49,3 +52,4 @@ for line in files.source['f']:
 files.myShutdowm()
 
 print ("old " + str(j) + '\nnew ' + str(j_min))
+
