@@ -1,6 +1,6 @@
 
 class myFile:
-    source = {'pretext':'aaaaa',
+    source = {'pretext':'',
               'f':False}
     QfilePath = {}
     Qfiles = {}
@@ -33,7 +33,8 @@ class myFile:
             if(self.Logfiles[i]): self.Logfiles[i].close()
             self.QfilePath[i] = ''
             self.LogfilePath[i] = ''
-     
+        self.source['f'].close()
+        self.source['pretext'] = ''     
         
     def takeCur (self):
         try:
