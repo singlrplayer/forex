@@ -24,6 +24,7 @@ for line in files.source['f']:
     files.Qfiles['minFile'].write(y.cur+','+str(olddate)+','+str(oldtime)+','+str(olDopenVal)+','+str(olDhightVal)+','+str(olDlowVal)+','+str(olDcloseVal)+','+y.lineEnd)
     date = y.date
     time = y.time
+    candle.updVal(y,0)
     openVal = y.openVal
     hightVal = y.hightVal
     lowVal = y.lowVal
