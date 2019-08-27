@@ -9,6 +9,8 @@ class lineVal:
     closeVal = 0.0 #конец свечки
     lowVal = 0.0 #нижняя тень свечки
     lineEnd = '' #херня какая-то
+    candleVal = ['open','close','hight','low'] #ключи. для некоторых других мест
+    candle = {}
     
 def myParsLine(s):
     try:
@@ -22,16 +24,16 @@ def myParsLine(s):
         lineVal.time = s[0:i]
         s = s[i+1:len(s)]
         i = s.index(",",0,len(s))
-        lineVal.openVal = Decimal(s[0:i])
+        lineVal.candle['open'] = lineVal.openVal = Decimal(s[0:i])
         s = s[i+1:len(s)]
         i = s.index(",",0,len(s))
-        lineVal.hightVal = Decimal(s[0:i])
+        lineVal.candle['hight'] = lineVal.hightVal = Decimal(s[0:i])
         s = s[i+1:len(s)]
         i = s.index(",",0,len(s))
-        lineVal.lowVal = Decimal(s[0:i])
+        lineVal.candle['low'] = lineVal.lowVal = Decimal(s[0:i])
         s = s[i+1:len(s)]
         i = s.index(",",0,len(s))
-        lineVal.closeVal = Decimal(s[0:i])
+        lineVal.candle['close'] = lineVal.closeVal = Decimal(s[0:i])
         lineVal.lineEnd = s[i+1:len(s)]
         return lineVal
     except Exception:

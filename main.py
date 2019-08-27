@@ -17,14 +17,14 @@ time = oldtime = y.time
 candle = candleValues()
 candle.myInit(y)
 olDopenVal = openVal = y.openVal; olDhightVal = hightVal = y.hightVal; olDlowVal = lowVal = y.lowVal; olDcloseVal = closeVal = y.closeVal
-j = j_min = 1
+j = j_min = 0
 itertools.islice(files.source['f'],1)
 for line in files.source['f']:
     y = myParsLine(line)
+    candle.updateMe(y,j_min)
     files.Qfiles['minFile'].write(y.cur+','+str(olddate)+','+str(oldtime)+','+str(olDopenVal)+','+str(olDhightVal)+','+str(olDlowVal)+','+str(olDcloseVal)+','+y.lineEnd)
     date = y.date
     time = y.time
-    candle.updVal(y,0)
     openVal = y.openVal
     hightVal = y.hightVal
     lowVal = y.lowVal
@@ -34,6 +34,7 @@ for line in files.source['f']:
     oldtime = val.t
     olddate = val.d
     while ((time > oldtime or date > olddate)):
+            candle.updateMe(y,j_min)
             j_min = j_min +1
             files.Qfiles['minFile'].write(y.cur+','+str(olddate)+','+str(oldtime)+','+str(olDopenVal)+','+str(olDhightVal)+','+str(olDlowVal)+','+str(olDcloseVal)+','+y.lineEnd)
             files.Logfiles['minFile'].write("incerted time " + str (oldtime)+" at " + str(olddate) + ",   line " + str(j_min) + "\n")
