@@ -17,6 +17,12 @@ class lineVal:
         self.olddata['olddate'] = val.d
         self.olddata['oldtime'] = val.t
 
+    def rememberOldCandle(self):
+       self.olddata['olDopenVal'] = lineVal.candle['open']
+       self.olddata['olDlowVal'] = lineVal.candle['low']
+       self.olddata['olDhightVal'] = lineVal.candle['hight']
+       self.olddata['olDcloseVal'] = lineVal.candle['close'] 
+
 def myParsLine(s):
     try:
         i = s.index(",",0,len(s))
@@ -45,9 +51,4 @@ def myParsLine(s):
         print ("ошибка формата полученной строки: \n " + str(s) + "\nожидается формат: <TICKER>,<DTYYYYMMDD>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>")
 
 
-def rememberOldCandle():
-    lineVal.olddata['olddate'] = lineVal.date 
-    lineVal.olddata['oldtime'] = lineVal.time
-    lineVal.olddata['olDopenVal'] = lineVal.candle['open']
-    lineVal.olddata['olDhightVal'] = lineVal.candle['hight']
-    lineVal.olddata['olDcloseVal'] = lineVal.candle['low'] 
+
