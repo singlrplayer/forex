@@ -12,17 +12,18 @@ files = myFile()
 files.myInit()
 files.Qfiles['minFile'].write(files.source['f'].readline()) #первую строку переписываем, но только в минутный файл. мне надо, чтобы его понимал форексовый терминал
 y = myParsLine(files.source['f'].readline()) #вторую парсим чтоб задать стартовые значения (надо будет сделать это как-то изящнее)
-date = olddate = y.date;
-time = oldtime = y.time
+val = updMytime('000000','20010101') #TODO: убрать нахер отсюда, и сделать нормально
+val.d = date = olddate = y.date;
+val.t = time = oldtime = y.time
 candle = candleValues()
 candle.myInit(y)
-olDopenVal = openVal = y.openVal; olDhightVal = hightVal = y.hightVal; olDlowVal = lowVal = y.lowVal; olDcloseVal = closeVal = y.closeVal
+y.rememberOldDatatime(y, val)
+y.rememberOldCandle(y)
 j = j_min = 0
 itertools.islice(files.source['f'],1)
 for line in files.source['f']:
     y = myParsLine(line)
     candle.updateMe(y,j_min, files) #update means file data update
-    #files.Qfiles['minFile'].write(y.cur+','+str(olddate)+','+str(oldtime)+','+str(olDopenVal)+','+str(olDhightVal)+','+str(olDlowVal)+','+str(olDcloseVal)+','+y.lineEnd)
     date = y.date
     time = y.time
     openVal = y.openVal
@@ -37,7 +38,6 @@ for line in files.source['f']:
     while ((time > oldtime or date > olddate)):
             candle.updateMe(y,j_min, files)
             j_min = j_min +1
-            #files.Qfiles['minFile'].write(y.cur+','+str(olddate)+','+str(oldtime)+','+str(olDopenVal)+','+str(olDhightVal)+','+str(olDlowVal)+','+str(olDcloseVal)+','+y.lineEnd)
             files.Logfiles['minFile'].write("incerted time " + str (oldtime)+" at " + str(olddate) + ",   line " + str(j_min) + "\n")
             val = updMytime(oldtime, olddate)
             y.rememberOldDatatime(y, val)
