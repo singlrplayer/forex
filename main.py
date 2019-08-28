@@ -21,7 +21,7 @@ j = j_min = 0
 itertools.islice(files.source['f'],1)
 for line in files.source['f']:
     y = myParsLine(line)
-    candle.updateMe(y,j_min)
+    candle.updateMe(y,j_min) #update means file data update
     files.Qfiles['minFile'].write(y.cur+','+str(olddate)+','+str(oldtime)+','+str(olDopenVal)+','+str(olDhightVal)+','+str(olDlowVal)+','+str(olDcloseVal)+','+y.lineEnd)
     date = y.date
     time = y.time
@@ -31,16 +31,18 @@ for line in files.source['f']:
     closeVal = y.closeVal
     j = j +1; j_min = j_min +1 
     val = updMytime(oldtime, olddate)
-    oldtime = val.t
-    olddate = val.d
+    y.rememberOldDatatime(y, val)
+    oldtime = y.olddata['oldtime']
+    olddate = y.olddata['olddate']
     while ((time > oldtime or date > olddate)):
             candle.updateMe(y,j_min)
             j_min = j_min +1
             files.Qfiles['minFile'].write(y.cur+','+str(olddate)+','+str(oldtime)+','+str(olDopenVal)+','+str(olDhightVal)+','+str(olDlowVal)+','+str(olDcloseVal)+','+y.lineEnd)
             files.Logfiles['minFile'].write("incerted time " + str (oldtime)+" at " + str(olddate) + ",   line " + str(j_min) + "\n")
             val = updMytime(oldtime, olddate)
-            oldtime = val.t
-            olddate = val.d
+            y.rememberOldDatatime(y, val)
+            oldtime = y.olddata['oldtime']
+            olddate = y.olddata['olddate']
        #основная мысль: дыры в котировках появились за счет того, что в данный отрезок времени сделок небыло, следовательно мы их заполняем идентичными свечками, потому как ничего не менялось
        #возможны 100500 иных причин дырам в котировках, да ;) выходные и всяческие bank holydays например
        #возможно, апроксимация сработает лучше, но это будет видно уже при обучении

@@ -17,7 +17,7 @@ class s:
     t = ''
    
 def updMytime (st, sd):
-    try :
+    #try :
         d = time.strptime(str(sd) , "%Y%m%d")
         day = int(d.tm_mday)
         month = int(d.tm_mon)
@@ -47,6 +47,7 @@ def updMytime (st, sd):
         s.d = makeMyString(year) + makeMyString(month) + makeMyString(day)
         s.t = makeMyString(h) + makeMyString(m) + '00' #секунды у нас не считаются никогда
         return s
-    except Exception:
-        print ("ошибка формата даты\времени: \nдата " + str(sd) + "\nвремя " + str(st))
+    #except Exception:
+    #    print ("ошибка формата даты\времени: \nдата " + str(sd) + "\nвремя " + str(st))
+        
     

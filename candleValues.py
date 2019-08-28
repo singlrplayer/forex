@@ -30,7 +30,7 @@ class candleValues:
             print ("свечи бывают такие: ['min','5min', '15min', '30min', 'hour', '4hour', 'day', 'month'], а ты просишь такую: "+ str(self.candles[i]))
             print (Exception)
 
-    def updateTMP(self,j): #тут свежеполученную свечку добавляем в темпари, из которых потом делаем следующую, и очищаем значения текущей
+    def updateTMP(self,j): #тут свежеполученную свечку добавляем в темпари (из которых потом делаем следующую), и очищаем значения текущей
                 self.candle_tmp[self.candles[j+1]]['open'].append(self.openVal[self.candles[j]]) #TODO переделать всё к черту в едином стиле пока сама еще понимаю
                 self.candle_tmp[self.candles[j+1]]['close'].append(self.closeVal[self.candles[j]]) #TODO переделать всё к черту в едином стиле пока сама еще понимаю
                 self.candle_tmp[self.candles[j+1]]['hight'].append(self.hightVal[self.candles[j]]) #TODO переделать всё к черту в едином стиле пока сама еще понимаю
@@ -41,7 +41,7 @@ class candleValues:
 
     def updateMe(self, y, ind): #TODO: убедиться в работоспособности и переписать всё красиво. помумать на счет красивого решения месячных и годовых свечей
         try:
-            self.updVal(y.openVal, y.closeVal, y.hightVal, y.lowVal,0) #3-й аргумент является индексом вот этой штуки ['min','5min', '15min', '30min', 'hour', '4hour', 'day', 'month']
+            self.updVal(y.openVal, y.closeVal, y.hightVal, y.lowVal,0) #5-й аргумент является индексом вот этой штуки ['min','5min', '15min', '30min', 'hour', '4hour', 'day', 'month']
             for j in self.candleVal:
                 self.candle_tmp['5min'][j].append(y.candle[j]) #добавляем значений во все свечи
             if (not ind%5):# пришло время делать пятиминутную свечку из пяти штук минутных  
