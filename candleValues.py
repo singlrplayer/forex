@@ -39,10 +39,12 @@ class candleValues:
                     self.candle_tmp[self.candles[j]][k] = [] 
 
 
-    def updateMe(self, y, ind, files): #TODO: убедиться в работоспособности и переписать всё красиво. помумать на счет красивого решения месячных и годовых свечей
-       # try:
+    def updateMe(self, y, ind, files, flag): #TODO: убедиться в работоспособности и переписать всё красиво. помумать на счет красивого решения месячных и годовых свечей
+        try:
             self.updVal(y.openVal, y.closeVal, y.hightVal, y.lowVal,0) #5-й аргумент является индексом вот этой штуки ['min','5min', '15min', '30min', 'hour', '4hour', 'day', 'month']
             files.Qfiles['minFile'].write(y.cur+','+str(y.olddata['olddate'])+','+ str(y.olddata['oldtime'])+','+str(y.olddata['olDopenVal'])+','+str(y.olddata['olDhightVal'])+','+str(y.olddata['olDlowVal'])+','+str(y.olddata['olDcloseVal'])+','+str(y.lineEnd)) #последовательность записи значений в файл важна!!!!!!!!!
+       #     if(flag): # flag == False, если свеча подлинная, и flag == True, если на этом месте есть дыра в исходных данных
+            files.Logfiles['minFile'].write("incerted time " + str (y.olddata['oldtime'])+" at " + str(y.olddata['olDopenVal']) + ",   line " + str(ind) + "\n")
             for j in self.candleVal:
                 self.candle_tmp['5min'][j].append(y.candle[j]) #добавляем значений во все свечи
             if (ind == 0): return
@@ -61,9 +63,9 @@ class candleValues:
             if(not ind%240):# пришло время делать четырехчасовую свечку из четырех штук часовых
                 self.updVal(self.candle_tmp['4hour']['open'][0],self.candle_tmp['4hour']['close'][3],max(self.candle_tmp['4hour']['hight']), min(self.candle_tmp['4hour']['low']),2)
                 self.updateTMP(5) # 5 means '4hour'
-      #  except Exception:
-       #     if (ind == 0): return #TODO придумать что-то другое
-        #    print ("непонятная ошибка в обновлении свечей в строке почучаемого минутного файла " + str(ind))
-         #   print (Exception)
+        except Exception:
+            if (ind == 0): return #TODO придумать что-то другое
+            print ("непонятная ошибка в обновлении свечей в строке почучаемого минутного файла " + str(ind))
+            print (Exception)
     
                 
