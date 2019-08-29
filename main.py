@@ -34,7 +34,7 @@ for line in files.source['f']:
     y.rememberOldDatatime(y, val)
     oldtime = y.olddata['oldtime']
     olddate = y.olddata['olddate']
-    while ((time > oldtime or date > olddate)): #таким вот образом обнаруживается дыра в исходных данных, которая заполняется предыдущими свечками
+    while ((time > oldtime or date > olddate)): #таким вот образом обнаруживается дыра в исходных минутных данных, которая заполняется предыдущими свечками
             candle.updateMe(y,j_min, files, True)
             j_min = j_min +1
             #files.Logfiles['minFile'].write("incerted time " + str (oldtime)+" at " + str(olddate) + ",   line " + str(j_min) + "\n")

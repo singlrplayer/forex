@@ -1,16 +1,15 @@
 
 class myFile:
-    source = {'pretext':'',
-              'f':False}
-    QfilePath = {}
-    Qfiles = {}
-    LogfilePath = {}
-    Logfiles = {}
-    candles = ['minFile','min5File','min15File','min30File','hourFile','hour4File','dayFile','monthFile']
+    source = {'path':'', 'pretext':'','f':False} #путь, название, и переменная исходного файла (здесь и везде: название исходного файла идентично с аббревиатурой валютной пары)
+    QfilePath = {} #пути к файлам со свечками
+    Qfiles = {} #переменные файлов со свечками
+    LogfilePath = {} #пути к файлам с логами
+    Logfiles = {} #переменные файлов с логами
+    candles = ['minFile','min5File','min15File','min30File','hourFile','hour4File','dayFile','weekFile','monthFile'] #названия свечек. добавляется к названию файла
 
    
     def myInit (self):
-        self.takeCur()
+        self.takeFromCfg() #берем значения из конфига
         try:
             self.source['f'] = open(self.source['pretext'] + '.txt','r')
         except Exception:
@@ -36,7 +35,7 @@ class myFile:
         self.source['f'].close()
         self.source['pretext'] = ''     
         
-    def takeCur (self):
+    def takeFromCfg(self):
         try:
             f = open('config.txt','r')
             z = f.readline()

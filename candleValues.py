@@ -43,8 +43,8 @@ class candleValues:
         try:
             self.updVal(y.openVal, y.closeVal, y.hightVal, y.lowVal,0) #5-й аргумент является индексом вот этой штуки ['min','5min', '15min', '30min', 'hour', '4hour', 'day', 'month']
             files.Qfiles['minFile'].write(y.cur+','+str(y.olddata['olddate'])+','+ str(y.olddata['oldtime'])+','+str(y.olddata['olDopenVal'])+','+str(y.olddata['olDhightVal'])+','+str(y.olddata['olDlowVal'])+','+str(y.olddata['olDcloseVal'])+','+str(y.lineEnd)) #последовательность записи значений в файл важна!!!!!!!!!
-       #     if(flag): # flag == False, если свеча подлинная, и flag == True, если на этом месте есть дыра в исходных данных
-            files.Logfiles['minFile'].write("incerted time " + str (y.olddata['oldtime'])+" at " + str(y.olddata['olDopenVal']) + ",   line " + str(ind) + "\n")
+            if(flag): # flag == False, если свеча подлинная, и flag == True, если на этом месте есть дыра в исходных данных
+                files.Logfiles['minFile'].write("incerted time " + str (y.olddata['oldtime'])+" at " + str(y.olddata['olDopenVal']) + ",   line " + str(ind) + "\n")
             for j in self.candleVal:
                 self.candle_tmp['5min'][j].append(y.candle[j]) #добавляем значений во все свечи
             if (ind == 0): return
