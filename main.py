@@ -35,6 +35,7 @@ for line in files.source['f']:
     oldtime = y.olddata['oldtime']
     olddate = y.olddata['olddate']
     while ((time > oldtime or date > olddate)): #таким вот образом обнаруживается дыра в исходных минутных данных, которая заполняется предыдущими свечками
+            y.candle['auth'] = y.candle['auth'] + 1
             candle.updateMe(y,j_min, files, True)
             j_min = j_min +1
             val = updMytime(oldtime, olddate)

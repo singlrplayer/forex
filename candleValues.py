@@ -36,18 +36,29 @@ class candleValues:
                 self.candle_tmp[self.candles[j+1]]['hight'].append(self.hightVal[self.candles[j]]) #TODO переделать всё к черту в едином стиле пока сама еще понимаю
                 self.candle_tmp[self.candles[j+1]]['low'].append(self.lowVal[self.candles[j]]) #TODO переделать всё к черту в едином стиле пока сама еще понимаю
                 for k in self.candleVal:
-                    self.candle_tmp[self.candles[j]][k] = [] 
+                    self.candle_tmp[self.candles[j]][k] = []
+
+    def updatePrefix(self, s, j): #синяя изолента, помогающая парсить получаемый файл глазками
+        i = s.index(" ",0,len(s))
+        if (i == -1): return s
+        s = s[i+1:len(s)]
+        s = str(j) + ' ' + s
+        return s
 
 
     def updateMe(self, y, ind, files, flag): #TODO: убедиться в работоспособности и переписать всё красиво. помумать на счет красивого решения месячных и годовых свечей
         try:
-            self.updVal(y.openVal, y.closeVal, y.hightVal, y.lowVal,0) #5-й аргумент является индексом вот этой штуки ['min','5min', '15min', '30min', 'hour', '4hour', 'day', 'month']
-            files.Qfiles['minFile'].write(y.cur+','+str(y.olddata['olddate'])+','+ str(y.olddata['oldtime'])+','+str(y.olddata['olDopenVal'])+','+str(y.olddata['olDhightVal'])+','+str(y.olddata['olDlowVal'])+','+str(y.olddata['olDcloseVal'])+','+str(y.lineEnd)) #последовательность записи значений в файл важна!!!!!!!!!
             if(flag): # flag == False, если свеча подлинная, и flag == True, если на этом месте есть дыра в исходных данных
                 files.Logfiles['minFile'].write("incerted time " + str (y.olddata['oldtime'])+" at " + str(y.olddata['olDopenVal']) + ",   line " + str(ind) + "\n")
+                if(y.candle['auth'] == 1) : y.cur = str(y.candle['auth']) + ' ' + y.cur
+                else : y.cur = self.updatePrefix(y.cur, y.candle['auth'])
+                self.candle_tmp['5min']['auth'].append(y.candle['auth']) #добавляем индекс аутентичности минутной свечки в пятиминутный темпарь. количество добавленных символов -- степень подлинности свечи
+                #
+            self.updVal(y.openVal, y.closeVal, y.hightVal, y.lowVal,0) #5-й аргумент является индексом вот этой штуки ['min','5min', '15min', '30min', 'hour', '4hour', 'day', 'month']
+            files.Qfiles['minFile'].write(y.cur+','+str(y.olddata['olddate'])+','+ str(y.olddata['oldtime'])+','+str(y.olddata['olDopenVal'])+','+str(y.olddata['olDhightVal'])+','+str(y.olddata['olDlowVal'])+','+str(y.olddata['olDcloseVal'])+','+str(y.lineEnd)) #последовательность записи значений в файл важна!!!!!!!!!
             for j in self.candleVal:
                 self.candle_tmp['5min'][j].append(y.candle[j]) #добавляем значений во все свечи
-            #if (ind == 0): return
+            if (ind == 0): return
             if (not ind%5):# пришло время делать пятиминутную свечку из пяти штук минутных  
                 self.updVal(self.candle_tmp['5min']['open'][0],self.candle_tmp['5min']['close'][4],max(self.candle_tmp['5min']['hight']), min(self.candle_tmp['5min']['low']),1)
                 self.updateTMP(1) # 1 means '5min'
