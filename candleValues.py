@@ -43,21 +43,26 @@ class candleValues:
                 #if(j<2): print (self.candle_tmp[self.candles[j+1]]['auth'])
 
     def updatePrefix(self, s, j): #синяя изолента, помогающая парсить получаемый файл глазками: порядка 6 лямов гребанных строк
-        i = s.index(" ",0,len(s))
-        if (i == -1): return s
-        s = s[i+1:len(s)]
-        s = str(j) + ' ' + s
-        return s
+        try:
+            i = s.index(" ",0,len(s))
+            if (i == -1): return s
+            s = s[i+1:len(s)]
+            s = str(j) + ' ' + s
+            return s
+        except Exception:
+            print("prefix exception " +s)
+            return s
 
 
     def updateMe(self, y, ind, files, flag): #TODO: убедиться в работоспособности и переписать всё красиво. помумать на счет красивого решения месячных и годовых свечей
         #try:
+            pr = ' '
             if(flag): # flag == False, если свеча подлинная, и flag == True, если на этом месте есть дыра в исходных минутніх данных
                 files.Logfiles['minFile'].write("incerted time " + str (y.olddata['oldtime'])+" at " + str(y.olddata['olDopenVal']) + ",   line " + str(ind) + "\n")
-                if(y.candle['auth'] == 1) : y.cur = str(y.candle['auth']) + ' ' + y.cur
-                else : y.cur = self.updatePrefix(y.cur, y.candle['auth'])
+                if(y.candle['auth'] == 1) : pr = str(y.candle['auth']) + ' '
+                else : pr = self.updatePrefix(pr, y.candle['auth'])
             self.updVal(y.openVal, y.closeVal, y.hightVal, y.lowVal,0) #5-й аргумент является индексом вот этой штуки ['min','5min', '15min', '30min', 'hour', '4hour', 'day', 'week' 'month']
-            files.Qfiles['minFile'].write(y.cur+','+str(y.olddata['olddate'])+','+ str(y.olddata['oldtime'])+','+str(y.olddata['olDopenVal'])+','+str(y.olddata['olDhightVal'])+','+str(y.olddata['olDlowVal'])+','+str(y.olddata['olDcloseVal'])+','+str(y.lineEnd)) #последовательность записи значений в файл важна!!!!!!!!!
+            files.Qfiles['minFile'].write(str(pr) + y.cur+','+str(y.olddata['olddate'])+','+ str(y.olddata['oldtime'])+','+str(y.olddata['olDopenVal'])+','+str(y.olddata['olDhightVal'])+','+str(y.olddata['olDlowVal'])+','+str(y.olddata['olDcloseVal'])+','+str(y.lineEnd)) #последовательность записи значений в файл важна!!!!!!!!!
             for j in self.candleVal:
                 self.candle_tmp['5min'][j].append(y.candle[j]) #добавляем значений во все свечи
             if (ind == 0): return
