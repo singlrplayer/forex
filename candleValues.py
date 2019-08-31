@@ -32,23 +32,20 @@ class candleValues:
             print (Exception)
 
     def updateTMP(self,j): #тут свежеполученную свечку добавляем в темпари (из которых потом делаем следующую), и очищаем значения текущей
-                auth = len(self.candle_tmp[self.candles[j]]['auth']) - self.candle_tmp[self.candles[j]]['auth'].count(0)
+                auth = len(self.candle_tmp[self.candles[j]]['auth']) - self.candle_tmp[self.candles[j]]['auth'].count(0) #количество меньших свечей с ошибками (отымается количество аутентичных от количества общего)
                 countAuth = 0
                 for k in range(len(self.candle_tmp[self.candles[j]]['auth'])):
-                    if (j == 1): #исключение для пятиминутных свечей: в минутных аутентификация равна если не нулу, то текущему номеру в последовательности минутой свечи, заполняющей пробел в исходных данных
-                        if(self.candle_tmp[self.candles[j]]['auth'] > 0 ): countAuth =  countAuth + 1 #TODO: переделать нафиг
+                    if (j == 1): #исключение для пятиминутных свечей: в минутных аутентификация равна если не нулю, то текущему номеру в последовательности минутой свечи, заполняющей пробел в исходных данных
+                        if(self.candle_tmp[self.candles[j]]['auth'][k] > 0 ): countAuth =  countAuth + 1 #TODO: переделать нафиг
                     else:
                         countAuth =  countAuth + self.candle_tmp[self.candles[j]]['auth'][k]
                 self.candle_tmp[self.candles[j+1]]['open'].append(self.openVal[self.candles[j]]) #TODO переделать всё к черту в едином стиле пока сама еще понимаю
                 self.candle_tmp[self.candles[j+1]]['close'].append(self.closeVal[self.candles[j]]) #TODO переделать всё к черту в едином стиле пока сама еще понимаю
                 self.candle_tmp[self.candles[j+1]]['hight'].append(self.hightVal[self.candles[j]]) #TODO переделать всё к черту в едином стиле пока сама еще понимаю
                 self.candle_tmp[self.candles[j+1]]['low'].append(self.lowVal[self.candles[j]]) #TODO переделать всё к черту в едином стиле пока сама еще понимаю
-
-                #print ("на обновление зашел элемент " + str(j) + "      autenticy = " + str(auth))
-                #if (j > 4): print (self.candle_tmp[self.candles[j]])
                 for k in self.candleVal:
                     self.candle_tmp[self.candles[j]][k] = []
-                self.candle_tmp[self.candles[j+1]]['auth'].append(auth)
+                self.candle_tmp[self.candles[j+1]]['auth'].append(countAuth)
                 if(auth == 0):pr = '' #синяя изолента, помогающая парсить получаемый файл глазками: порядка overk10 лямов гребанных строк
                 else: pr = str(auth) + ' ' + str(countAuth) + ' '
                 return pr # '' if candle original :)
@@ -66,7 +63,7 @@ class candleValues:
 
 
     def updateMe(self, y, ind, files, flag): #TODO: убедиться в работоспособности и переписать всё правильно. помумать на счет красивого решения месячных и годовых свечей
-        #try: #ВАЖНО: во всех свечах, за исключением минутных пишется дата\время ёё закрытия, а не открытия
+        try: #ВАЖНО: во всех свечах, за исключением минутных пишется дата\время ёё закрытия, а не открытия
             pr = ' '
             if(flag): # flag == False, если свеча подлинная, и flag == True, если на этом месте есть дыра в исходных минутніх данных
                 files.Logfiles['minFile'].write("incerted time " + str (y.olddata['oldtime'])+" at " + str(y.olddata['olDopenVal']) + ",   line " + str(ind) + "\n")
@@ -98,19 +95,17 @@ class candleValues:
                 pr = self.updateTMP(5) # 5 means '4hour'
                 files.Qfiles['hour4File'].write(pr + y.cur+','+str(y.olddata['olddate'])+','+ str(y.olddata['oldtime'])+','+str(self.openVal['4hour'])+','+str(self.hightVal['4hour'])+','+str(self.lowVal['4hour'])+','+str(self.closeVal['4hour'])+','+str(y.lineEnd)) #последовательность записи значений в файл важна!!!!!!!!!
             if(not ind%1440):# пришло время делать дневную свечку из шести штук четырехчасовых
-                print ("a day ")
                 self.updVal(self.candle_tmp['day']['open'][0],self.candle_tmp['day']['close'][5],max(self.candle_tmp['day']['hight']), min(self.candle_tmp['day']['low']),6)
                 pr = self.updateTMP(6) # 6 means 'day'
-                print (self.openVal)
                 files.Qfiles['dayFile'].write(pr + y.cur+','+str(y.olddata['olddate'])+','+ str(y.olddata['oldtime'])+','+str(self.openVal['day'])+','+str(self.hightVal['day'])+','+str(self.lowVal['day'])+','+str(self.closeVal['day'])+','+str(y.lineEnd)) #последовательность записи значений в файл важна!!!!!!!!!
             if(not ind%10080):# пришло время делать недельную свечку из семи штук дневных
                 self.updVal(self.candle_tmp['week']['open'][0],self.candle_tmp['week']['close'][6],max(self.candle_tmp['week']['hight']), min(self.candle_tmp['week']['low']),7)
                 pr = self.updateTMP(7) # 7 means 'week'
                 files.Qfiles['weekFile'].write(pr + y.cur+','+str(y.olddata['olddate'])+','+ str(y.olddata['oldtime'])+','+str(self.openVal['week'])+','+str(self.hightVal['week'])+','+str(self.lowVal['week'])+','+str(self.closeVal['week'])+','+str(y.lineEnd)) #последовательность записи значений в файл важна!!!!!!!!!
             
-        #except Exception:
-           # if (ind == 0): return #TODO придумать что-то другое
-            #print ("непонятная ошибка в обновлении свечей в строке почучаемого минутного файла " + str(ind))
-            #print (Exception)
+        except Exception:
+            if (ind == 0): return #TODO придумать что-то другое
+            print ("непонятная ошибка в обновлении свечей в строке почучаемого минутного файла " + str(ind))
+            print (Exception)
     
                 
