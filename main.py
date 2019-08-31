@@ -18,7 +18,7 @@ candle = candleValues()
 candle.myInit(y)
 y.rememberOldDatatime(y, val)
 y.rememberOldCandle(y)
-j = j_min = 0
+j = j_min = 1
 itertools.islice(files.source['f'],1)
 for line in files.source['f']:
     y = myParsLine(line)
