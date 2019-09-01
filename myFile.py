@@ -3,10 +3,12 @@ import os
 
 class myFile:
     source = {'candlepath':'', 'logpath':'', 'pretext':'','f':False} #путь, название, и переменная исходного файла (здесь и везде: название исходного файла идентично с аббревиатурой валютной пары)
-    QfilePath = {} #пути к файлам со свечками
+    QfilePath = {} #файлы со свечками
     Qfiles = {} #переменные файлов со свечками
-    LogfilePath = {} #пути к файлам с логами
+    LogfilePath = {} #пфайлы с логами
     Logfiles = {} #переменные файлов с логами
+    StatFilePath = {} #файлы статистики
+    StatFiles = {} # переменные файлов статистики
     candles = ['minFile','min5File','min15File','min30File','hourFile','hour4File','dayFile','weekFile','monthFile'] #названия свечек. добавляется к названию файла
 
    
@@ -31,10 +33,11 @@ class myFile:
 
     def myShutdowm(self):
         for i in self.candles:
-            if(self.Qfiles[i]): self.Qfiles[i].close()
-            if(self.Logfiles[i]): self.Logfiles[i].close()
-            self.QfilePath[i] = ''
-            self.LogfilePath[i] = ''
+            if(i in self.Qfiles): self.Qfiles[i].close()
+            if(i in self.Logfiles): self.Logfiles[i].close()
+            if(i in self.StatFiles): self.StatFiles[i].close()
+            #self.QfilePath[i] = ''
+            #self.LogfilePath[i] = ''
         self.source['f'].close()
         self.source['pretext'] = ''
 
@@ -63,8 +66,24 @@ class myFile:
     def fileCreate(self, s):
         try:
             f = open(s,'w')
+            f.close()
             return s
         except Exception:
             print ("ошибка попытки создания\перезаписи файла " + s)
             self.myShutdowm()
+
+    def getStatFiles (candlefiles):
+        for i in self.candles:
+            try:
+                self.Qfiles[i] = open(self.QfilePath[i], 'r') #теперь, когда уже все сделано, мы открываем файлы на чтение для сбора статистики значений свечей за весь период
+            except Exception:
+                print ("ошибка открытия файлов " + self.QfilePath[i])
+                self.myShutdowm()
+            try:
+                self.StatFilePath[i] = self.fileCreate(self.source['pretext'] + "_stat_" + i + ".txt") #сюда складываем статистику значений
+            except Exception:
+                print ("создания файла статистики " + self.QfilePath[i])
+                self.myShutdowm()
+                
+        
 

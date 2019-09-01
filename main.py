@@ -1,4 +1,7 @@
 from candlecreate import candlecreate
+from myFile import myFile
 
-candlecreate()
+f = candlecreate()
+#statfiles = getStatFiles('f')
+
 print("finish ;)")

@@ -50,5 +50,6 @@ def candlecreate():
         oldtime = time
         olddate = date
     files.myShutdowm()
+    return files
     #print ("old " + str(j) + '\nnew ' + str(j_min))
 
