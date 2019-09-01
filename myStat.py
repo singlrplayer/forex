@@ -16,6 +16,22 @@ class myStat:
             self.stat[i]['auth'] = {}
         return self
 
-    def updateVal(self, mydict, key): #если такое значение уже было, то инкриминируем. нет -- добавляем
-        if (key in mydict): mydict[key] = mydict[key] + 1
-        else: mydict[key] = 1
+    def updateVal(self, mydict, key, auth, freq): #если такое значение уже было, то инкриминируем. нет -- добавляем
+        if (key in mydict):
+            mydict[key][0] = mydict[key][0] + 1 #количество совпадений цены
+            mydict[key][1] = mydict[key][1] + auth #количество неподнинных свечей (нижнего порядка). неподлинные === не на 100% подлинные
+            mydict[key][2] = mydict[key][2] + freq #количество неподлинных минутных свечей в данном значении
+        else:
+            mydict[key] = [0,0,0]
+            mydict[key][0] = 1
+            mydict[key][1] = auth
+            mydict[key][2] = freq
+        return self
+
+    def writeVal(self, mydict, file, key, filekey):
+        for j in mydict[key]:
+            file[filekey].write(key + ' ' + str(j) + ' ')
+            for k in mydict[key][j]:
+                file[filekey].write(str(k) + ' ')
+            file[filekey].write('\n')
+        

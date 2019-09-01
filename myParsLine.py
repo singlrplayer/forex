@@ -55,8 +55,6 @@ def getCandleFromSource(s):
         print ("ошибка формата полученной строки: \n " + str(s) + "\nожидается формат: <TICKER>,<DTYYYYMMDD>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>")
 
 def getCandleFrom(s):
-    lineVal.auth = 0
-    lineVal.freq = 0
     try:
         i = s.index(" ",0,len(s))
         lineVal.auth = s[0:i]
@@ -67,7 +65,8 @@ def getCandleFrom(s):
         return lineVal
     except Exception:
         getCandleFromSource(s)
-        #print ("auth candle")
+        lineVal.auth = 0
+        lineVal.freq = 0
         return lineVal
         
 
