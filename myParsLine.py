@@ -23,7 +23,7 @@ class lineVal:
        self.olddata['olDhightVal'] = lineVal.candle['hight']
        self.olddata['olDcloseVal'] = lineVal.candle['close'] 
 
-def myParsLine(s):
+def getCandleFromSource(s):
     try:
         i = s.index(",",0,len(s))
         lineVal.cur = s[0:i]

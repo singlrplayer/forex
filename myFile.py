@@ -1,6 +1,8 @@
 
+import os
+
 class myFile:
-    source = {'path':'', 'pretext':'','f':False} #путь, название, и переменная исходного файла (здесь и везде: название исходного файла идентично с аббревиатурой валютной пары)
+    source = {'candlepath':'', 'logpath':'', 'pretext':'','f':False} #путь, название, и переменная исходного файла (здесь и везде: название исходного файла идентично с аббревиатурой валютной пары)
     QfilePath = {} #пути к файлам со свечками
     Qfiles = {} #переменные файлов со свечками
     LogfilePath = {} #пути к файлам с логами
@@ -12,12 +14,13 @@ class myFile:
         self.takeFromCfg() #берем значения из конфига
         try:
             self.source['f'] = open(self.source['pretext'] + '.txt','r')
+            os.chdir(self.source['candlepath'])
         except Exception:
             print ("ошибка чтения исходного файла котировок. убедитесь, что файл " +self.source['pretext'] + ".txt существует (и желательно не пуст)")
             self.myShutdowm()
         for i in self.candles:
-            self.QfilePath[i] = self.fileCreate(self.source['pretext'] + "_" + i + ".txt")
             self.LogfilePath[i] = self.fileCreate(self.source['pretext'] + "_log_" + i + ".txt")
+            self.QfilePath[i] = self.fileCreate(self.source['pretext'] + "_" + i + ".txt")
             try:
                 self.Qfiles[i] = open(self.QfilePath[i], 'a')
                 self.Logfiles[i] = open(self.LogfilePath[i], 'a')
@@ -33,13 +36,25 @@ class myFile:
             self.QfilePath[i] = ''
             self.LogfilePath[i] = ''
         self.source['f'].close()
-        self.source['pretext'] = ''     
+        self.source['pretext'] = ''
+
+    def dircreate(self, s,ind):
+        path = os.getcwd()
+        path = path + "\\" + s
+        try:
+            self.source[ind] = path
+            os.makedirs(path)
+        except OSError:
+            if(os.path.isdir(path)):return
+            print ("Создать директорию %s не удалось" % path)
         
     def takeFromCfg(self):
         try:
             f = open('config.txt','r')
             z = f.readline()
-            self.source['pretext'] = str(z)
+            z = z[0:len(z)-1]
+            self.source['candlepath'] = self.source['pretext'] = str(z)
+            self.dircreate(self.source['candlepath'], 'candlepath')
             return self
         except Exception:
             print ("ошибка конфига. убедитесь, что файл 'config.txt' существует (и желательно не пуст).")

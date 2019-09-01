@@ -1,3 +1,4 @@
+import os
 
 class candleValues:
     openVal = {}
@@ -73,7 +74,7 @@ class candleValues:
             files.Qfiles['minFile'].write(str(pr) + y.cur+','+str(y.olddata['olddate'])+','+ str(y.olddata['oldtime'])+','+str(y.olddata['olDopenVal'])+','+str(y.olddata['olDhightVal'])+','+str(y.olddata['olDlowVal'])+','+str(y.olddata['olDcloseVal'])+','+str(y.lineEnd)) #последовательность записи значений в файл важна!!!!!!!!!
             for j in self.candleVal:
                 self.candle_tmp['5min'][j].append(y.candle[j]) #добавляем значений во все свечи
-            if (ind < 1): return
+            #if (ind < 1): return
             if (not ind%5):# пришло время делать пятиминутную свечку из пяти штук минутных
                 self.updVal(self.candle_tmp['5min']['open'][0],self.candle_tmp['5min']['close'][4],max(self.candle_tmp['5min']['hight']), min(self.candle_tmp['5min']['low']),1)
                 pr = self.updateTMP(1) # 1 means '5min'

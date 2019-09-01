@@ -1,17 +1,17 @@
-currency = 'AUDJPY'
+#currency = 'AUDJPY'
 
-from decimal import *
+#from decimal import *
 #import time
 import itertools
 from updMytime import updMytime
-from myParsLine import myParsLine
+from myParsLine import getCandleFromSource
 from myFile import myFile
 from candleValues import candleValues
 
 files = myFile()
 files.myInit()
 files.Qfiles['minFile'].write(files.source['f'].readline()) #первую строку переписываем, но только в минутный файл. мне надо, чтобы его понимал форексовый терминал
-y = myParsLine(files.source['f'].readline()) #вторую парсим чтоб задать стартовые значения (надо будет сделать это как-то изящнее)
+y = getCandleFromSource(files.source['f'].readline()) #вторую парсим чтоб задать стартовые значения (надо будет сделать это как-то изящнее)
 val = updMytime('000000','20010101') #TODO: убрать нахер отсюда, и сделать нормально
 val.d = date = olddate = y.date; val.t = time = oldtime = y.time
 candle = candleValues()
@@ -21,7 +21,7 @@ y.rememberOldCandle(y)
 j = j_min = 1
 itertools.islice(files.source['f'],1)
 for line in files.source['f']:
-    y = myParsLine(line)
+    y = getCandleFromSource(line)
     candle.updateMe(y,j_min, files, False) #update means file data update
     date = y.date
     time = y.time
