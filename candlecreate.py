@@ -7,7 +7,9 @@ from candleValues import candleValues
 def candlecreate():
     files = myFile()
     files.myInit()
-    files.Qfiles['minFile'].write(files.source['f'].readline()) #первую строку переписываем, но только в минутный файл. мне надо, чтобы его понимал форексовый терминал
+    #files.Qfiles['minFile'].write(files.source['f'].readline()) #первую строку переписываем, но только в минутный файл. мне надо, чтобы его понимал форексовый терминал
+    #itertools.islice(files.source['f'],1)
+    files.source['f'].readline()
     y = getCandleFromSource(files.source['f'].readline()) #вторую парсим чтоб задать стартовые значения (надо будет сделать это как-то изящнее)
     val = updMytime('000000','20010101') #TODO: убрать нахер отсюда, и сделать нормально
     val.d = date = olddate = y.date; val.t = time = oldtime = y.time
@@ -16,7 +18,7 @@ def candlecreate():
     y.rememberOldDatatime(y, val)
     y.rememberOldCandle(y)
     j = j_min = 1
-    itertools.islice(files.source['f'],1)
+    itertools.islice(files.source['f'],2)
     for line in files.source['f']:
         y = getCandleFromSource(line)
         candle.updateMe(y,j_min, files, False) #update means file data update

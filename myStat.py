@@ -15,3 +15,7 @@ class myStat:
             self.stat[i]['low'] = {}
             self.stat[i]['auth'] = {}
         return self
+
+    def updateVal(self, mydict, key): #если такое значение уже было, то инкриминируем. нет -- добавляем
+        if (key in mydict): mydict[key] = mydict[key] + 1
+        else: mydict[key] = 1

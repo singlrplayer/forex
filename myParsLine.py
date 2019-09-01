@@ -54,11 +54,20 @@ def getCandleFromSource(s):
     except Exception:
         print ("ошибка формата полученной строки: \n " + str(s) + "\nожидается формат: <TICKER>,<DTYYYYMMDD>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>")
 
-def getCandleFromFile(s):
+def getCandleFrom(s):
+    lineVal.auth = 0
+    lineVal.freq = 0
     try:
-        i = s.index(",",0,len(s))
+        i = s.index(" ",0,len(s))
+        lineVal.auth = s[0:i]
+        s = s[i+1:len(s)]
+        i = s.index(" ",0,len(s))
+        lineVal.freq = s[0:i]
+        getCandleFromSource(s)
         return lineVal
     except Exception:
-        print ("ошибка формата полученной строки: \n " + str(s) + "\nожидается формат: <TICKER>,<DTYYYYMMDD>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>")
+        getCandleFromSource(s)
+        #print ("auth candle")
+        return lineVal
         
 
