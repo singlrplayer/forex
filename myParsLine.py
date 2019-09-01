@@ -1,6 +1,9 @@
 from decimal import *
 
 class lineVal:
+    auth = 0 #аутентичность = 0, если в исходных данных (минутных) небыло дыр. в противном случае значение равно количеству меньших свеч (у нас одна свеча делается из другой, а не все из минутных), в которых были дыры
+    freq = 0 #количество неаутентичных _минутных_ свеч в составе текущей
+    #TODO: переписать candlecreate с учетом использования в\у параметров
     cur = '' #валютная пара
     date = '' #дата
     time = '' #время
@@ -51,5 +54,11 @@ def getCandleFromSource(s):
     except Exception:
         print ("ошибка формата полученной строки: \n " + str(s) + "\nожидается формат: <TICKER>,<DTYYYYMMDD>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>")
 
-
+def getCandleFromFile(s):
+    try:
+        i = s.index(",",0,len(s))
+        return lineVal
+    except Exception:
+        print ("ошибка формата полученной строки: \n " + str(s) + "\nожидается формат: <TICKER>,<DTYYYYMMDD>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>")
+        
 

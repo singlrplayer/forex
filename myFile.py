@@ -55,7 +55,7 @@ class myFile:
         try:
             f = open('config.txt','r')
             z = f.readline()
-            z = z[0:len(z)-1]
+            z = z[0:len(z)-1] #некрасивое удаление знака конца строки. переделать
             self.source['candlepath'] = self.source['pretext'] = str(z)
             self.dircreate(self.source['candlepath'], 'candlepath')
             return self
@@ -72,18 +72,27 @@ class myFile:
             print ("ошибка попытки создания\перезаписи файла " + s)
             self.myShutdowm()
 
-    def getStatFiles (candlefiles):
+    def getStatFiles(self, candlefiles):
         for i in self.candles:
             try:
-                self.Qfiles[i] = open(self.QfilePath[i], 'r') #теперь, когда уже все сделано, мы открываем файлы на чтение для сбора статистики значений свечей за весь период
+                self.Qfiles[i] = open(candlefiles.QfilePath[i], 'r') #теперь, когда уже все сделано, мы открываем файлы на чтение для сбора статистики значений свечей за весь период
             except Exception:
-                print ("ошибка открытия файлов " + self.QfilePath[i])
+                print ("ошибка открытия файл " + candlefiles.QfilePath[i])
                 self.myShutdowm()
+                candlefiles.myShutdowm()
             try:
-                self.StatFilePath[i] = self.fileCreate(self.source['pretext'] + "_stat_" + i + ".txt") #сюда складываем статистику значений
+                self.StatFilePath[i] = self.fileCreate(candlefiles.source['pretext'] + "_stat_" + i + ".txt") #сюда складывать будем статистику значений
             except Exception:
-                print ("создания файла статистики " + self.QfilePath[i])
+                print ("создания файла статистики " + candlefiles.QfilePath[i])
                 self.myShutdowm()
+                candlefiles.myShutdowm()
+            try:
+                self.StatFiles[i] = open(self.StatFilePath[i], 'a') #и открываем на дозапись
+            except Exception:
+                print ("ошибка открытия файл " + self.StatFilePath[i])
+                self.myShutdowm()
+                candlefiles.myShutdowm()
+        return self
                 
         
 
