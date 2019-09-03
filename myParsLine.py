@@ -57,10 +57,10 @@ def getCandleFromSource(s):
 def getCandleFrom(s):
     try:
         i = s.index(" ",0,len(s))
-        lineVal.auth = s[0:i]
+        lineVal.auth = int(s[0:i])
         s = s[i+1:len(s)]
         i = s.index(" ",0,len(s))
-        lineVal.freq = s[0:i]
+        lineVal.freq = int(s[0:i])
         getCandleFromSource(s)
         return lineVal
     except Exception:
