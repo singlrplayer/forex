@@ -9,8 +9,8 @@ statfiles = myFile()
 statfiles = statfiles.getStatFiles(f) #подготовка файлов для записи статистики
 st = myStat()
 st.myInit(statfiles)
-print (st.statVal['minFile']['body'])
 for i in statfiles.candles: #по всем имеющимся типам свечей
+    print (i)
     for line in statfiles.Qfiles[i]: #по каждой строке в сгенерированном файле истории
         y = getCandleFrom(line)
         st.updateVal(st.stat[i]['open'], str(y.openVal), int(y.auth), int(y.freq))
@@ -27,6 +27,8 @@ for i in statfiles.candles: #по всем имеющимся типам све�
             tmp1 = y.openVal - y.lowVal
         st.updateVal(st.statVal[i]['up'], str(tmp), int(y.auth), int(y.freq))
         st.updateVal(st.statVal[i]['down'], str(tmp1), int(y.auth), int(y.freq))
+        
+      
     st.writeVal(st.stat[i], statfiles.StatFiles, 'open', i)
     st.writeVal(st.stat[i], statfiles.StatFiles, 'hight', i)
     st.writeVal(st.stat[i], statfiles.StatFiles, 'low', i)
