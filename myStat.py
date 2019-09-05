@@ -27,8 +27,8 @@ class myStat:
             mydict[key][1] = mydict[key][1] + int(auth) #количество неподнинных свечей (нижнего порядка). неподлинные === не на 100% подлинные
             mydict[key][2] = mydict[key][2] + int(freq) #количество неподлинных минутных свечей в данном значении
         else:
-            mydict[key] = [0,0,0]
-            mydict[key][0] = 1
+            mydict[key] = [1,0,0]
+            #mydict[key][0] = 1
             mydict[key][1] = int(auth)
             mydict[key][2] = int(freq)
 
