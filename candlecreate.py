@@ -7,9 +7,7 @@ from candleValues import candleValues
 def candlecreate():
     files = myFile()
     files.myInit()
-    #files.Qfiles['minFile'].write(files.source['f'].readline()) #первую строку переписываем, но только в минутный файл. мне надо, чтобы его понимал форексовый терминал
-    #itertools.islice(files.source['f'],1)
-    files.source['f'].readline()
+    files.Qfiles['minFile'].write(files.source['f'].readline()) #первую строку переписываем, но только в минутный файл. мне надо, чтобы его понимал форексовый терминал
     y = getCandleFromSource(files.source['f'].readline()) #вторую парсим чтоб задать стартовые значения (надо будет сделать это как-то изящнее)
     val = updMytime('000000','20010101') #TODO: убрать нахер отсюда, и сделать нормально
     val.d = date = olddate = y.date; val.t = time = oldtime = y.time
@@ -18,7 +16,7 @@ def candlecreate():
     y.rememberOldDatatime(y, val)
     y.rememberOldCandle(y)
     j = j_min = 1
-    itertools.islice(files.source['f'],2)
+    itertools.islice(files.source['f'],1)
     for line in files.source['f']:
         y = getCandleFromSource(line)
         candle.updateMe(y,j_min, files, False) #update means file data update
@@ -33,7 +31,11 @@ def candlecreate():
         y.rememberOldDatatime(y, val)
         oldtime = y.olddata['oldtime']
         olddate = y.olddata['olddate']
+        rowTmp = 0 #длина (ширина\ продолжательность, если угодно) поддельного ряда 
         while ((time > oldtime or date > olddate)): #таким вот образом обнаруживается дыра в исходных минутных данных, которая заполняется предыдущими свечками
+            #ВНИМАНИЕ, блядь, ЭКСПЕРЕМЕНТАЛЬНАЯ синяя изолента
+            if (rowTmp > 60): break #ограничиваем количество поддельных свечей в 60 штук
+            # конец изоленты
             y.candle['auth'] = y.candle['auth'] + 1
             candle.updateMe(y,j_min, files, True)
             j_min = j_min +1
@@ -41,6 +43,9 @@ def candlecreate():
             y.rememberOldDatatime(y, val)
             oldtime = y.olddata['oldtime']
             olddate = y.olddata['olddate']
+            #ВНИМАНИЕ, блядь, ЭКСПЕРЕМЕНТАЛЬНАЯ синяя изолента
+            rowTmp = rowTmp + 1
+            # конец изоленты
        #основная мысль: дыры в котировках появились за счет того, что в данный отрезок времени сделок небыло, следовательно мы их заполняем идентичными свечками, потому как ничего не менялось
        #возможны 100500 иных причин дырам в котировках, да ;) выходные и всяческие bank holydays например
        #возможно, апроксимация сработает лучше, но это будет видно уже при обучении
