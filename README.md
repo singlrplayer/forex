@@ -1,4 +1,4 @@
-# forex @ket
+# forex
 ANN learning data
 
 русский язык принципиален. комментарии в коде я пишу для себя. возможна ненормативная лексика
@@ -9,3 +9,5 @@ ANN learning data
 
 
 if u're interest in, don't be hesitate to contact me https://uk-ua.facebook.com/ket.sivak
+
+минутные котировки взяты из открытых источников на просторах интернета :) 
