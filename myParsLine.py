@@ -1,4 +1,3 @@
-from decimal import *
 
 class lineVal:
     auth = 0 #аутентичность = 0, если в исходных данных (минутных) небыло дыр. в противном случае значение равно количеству меньших свеч (у нас одна свеча делается из другой, а не все из минутных), в которых были дыры
@@ -26,8 +25,24 @@ class lineVal:
        self.olddata['olDhightVal'] = lineVal.candle['hight']
        self.olddata['olDcloseVal'] = lineVal.candle['close'] 
 
-def getCandleFromSource(s):
+def getCandleFromSource(s): #извлекаем свечу из строки файла МТ4 пример "2019.09.26,09:38,0.8860,0.8861,0.8859,0.8861,5"
     try:
+        tmp = s.split(',')
+        lineVal.date = str(tmp[0])
+        lineVal.time = str(tmp[1])
+        lineVal.candle['open'] = lineVal.openVal = float(tmp[2])
+        lineVal.candle['hight'] = lineVal.hightVal = float(tmp[3])
+        lineVal.candle['low'] = lineVal.lowVal = float(tmp[4])
+        lineVal.candle['close'] = lineVal.closeVal = float(tmp[5])
+        lineVal.candle['auth'] = 0
+        return lineVal
+    except Exception:
+        print ("ошибка формата полученной строки: \n " + str(s) + "\nожидается формат: <DTYYYYMMDD>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>")
+        return -1
+
+
+        
+    """try:
         i = s.index(",",0,len(s))
         lineVal.cur = s[0:i]
         s = s[i+1:len(s)]
@@ -52,7 +67,7 @@ def getCandleFromSource(s):
         lineVal.candle['auth'] = 0
         return lineVal
     except Exception:
-        print ("ошибка формата полученной строки: \n " + str(s) + "\nожидается формат: <TICKER>,<DTYYYYMMDD>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>")
+        print ("ошибка формата полученной строки: \n " + str(s) + "\nожидается формат: <TICKER>,<DTYYYYMMDD>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>")"""
 
 def getCandleFrom(s):
     try:

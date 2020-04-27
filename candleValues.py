@@ -64,15 +64,16 @@ class candleValues:
 
 
     def updateMe(self, y, ind, files, flag): #TODO: убедиться в работоспособности и переписать всё правильно. помумать на счет красивого решения месячных и годовых свечей
-        try: #ВАЖНО: во всех свечах, за исключением минутных пишется дата\время ёё закрытия, а не открытия
+        #try: #ВАЖНО: во всех свечах, за исключением минутных пишется дата\время ёё закрытия, а не открытия
             pr = ' '
-            if(flag): # flag == False, если свеча подлинная, и flag == True, если на этом месте есть дыра в исходных минутніх данных
+            """if(flag): # flag == False, если свеча подлинная, и flag == True, если на этом месте есть дыра в исходных минутніх данных
                 files.Logfiles['minFile'].write("incerted time " + str (y.olddata['oldtime'])+" at " + str(y.olddata['olDopenVal']) + ",   line " + str(ind) + "\n")
                 if(y.candle['auth'] == 1) : pr = str(y.candle['auth']) + ' '
-                else : pr = self.updatePrefix(pr, y.candle['auth'])
+                else : pr = self.updatePrefix(pr, y.candle['auth'])"""
             self.updVal(y.openVal, y.closeVal, y.hightVal, y.lowVal,0) #5-й аргумент является индексом вот этой штуки ['min','5min', '15min', '30min', 'hour', '4hour', 'day', 'week' 'month']
-            files.Qfiles['minFile'].write(str(pr) + y.cur+','+str(y.olddata['olddate'])+','+ str(y.olddata['oldtime'])+','+str(y.olddata['olDopenVal'])+','+str(y.olddata['olDhightVal'])+','+str(y.olddata['olDlowVal'])+','+str(y.olddata['olDcloseVal'])+','+str(y.lineEnd)) #последовательность записи значений в файл важна!!!!!!!!!
-            for j in self.candleVal:
+            #print(files)
+            files.write(str(pr) + str(y.olddata['olddate'])+','+ str(y.olddata['oldtime'])+','+str(y.olddata['olDopenVal'])+','+str(y.olddata['olDhightVal'])+','+str(y.olddata['olDlowVal'])+','+str(y.olddata['olDcloseVal'])+'\n') #последовательность записи значений в файл важна!!!!!!!!!
+            """for j in self.candleVal:
                 self.candle_tmp['5min'][j].append(y.candle[j]) #добавляем значений во все свечи
             #if (ind < 1): return
             if (not ind%5):# пришло время делать пятиминутную свечку из пяти штук минутных
@@ -102,11 +103,11 @@ class candleValues:
             if(not ind%10080):# пришло время делать недельную свечку из семи штук дневных
                 self.updVal(self.candle_tmp['week']['open'][0],self.candle_tmp['week']['close'][6],max(self.candle_tmp['week']['hight']), min(self.candle_tmp['week']['low']),7)
                 pr = self.updateTMP(7) # 7 means 'week'
-                files.Qfiles['weekFile'].write(pr + y.cur+','+str(y.olddata['olddate'])+','+ str(y.olddata['oldtime'])+','+str(self.openVal['week'])+','+str(self.hightVal['week'])+','+str(self.lowVal['week'])+','+str(self.closeVal['week'])+','+str(y.lineEnd)) #последовательность записи значений в файл важна!!!!!!!!!
+                files.Qfiles['weekFile'].write(pr + y.cur+','+str(y.olddata['olddate'])+','+ str(y.olddata['oldtime'])+','+str(self.openVal['week'])+','+str(self.hightVal['week'])+','+str(self.lowVal['week'])+','+str(self.closeVal['week'])+','+str(y.lineEnd)) #последовательность записи значений в файл важна!!!!!!!!!"""
             
-        except Exception:
-            if (ind == 0): return #TODO придумать что-то другое
-            print ("непонятная ошибка в обновлении свечей в строке почучаемого минутного файла " + str(ind))
-            print (Exception)
+       # except Exception:
+        #    if (ind == 0): return #TODO придумать что-то другое
+         #   print ("непонятная ошибка в обновлении свечей в строке почучаемого минутного файла " + str(ind))
+          #  print (Exception)
     
                 
