@@ -13,7 +13,7 @@ statfiles = statfiles.getStatFiles() #подготовка файлов для �
 st = myStat()
 st.myInit(statfiles)
 const = 10000 #коэфициент перевода производной цены в пункты
-intervals = 5 #нужное количество интервалов 
+#intervals = 6 #нужное количество интервалов 
 counter = {} #количества тел и теней
 for i in statfiles.candles: #по всем имеющимся типам свечей
     if(statfiles.QfilePath[i] == ''): continue
@@ -55,7 +55,11 @@ for i in statfiles.candles: #по всем имеющимся типам све�
     
     for key in st.statVal[i]: 
        counter[key] = st.writeVal(st.statVal[i], statfiles.StatFiles, key, i) 
-    bo = st.getBorders(counter, intervals, st.statVal[i], const)
-    st.saveBorders(bo, statfiles.source['borders'], i)
+    bo = st.getBorders(counter, 6, st.statVal[i], const)
+    st.saveBorders(bo, statfiles.source['borders'], i, 6)
+    bo = st.getBorders(counter, 5, st.statVal[i], const)
+    st.saveBorders(bo, statfiles.source['borders'], i, 5)
+    bo = st.getBorders(counter, 4, st.statVal[i], const)
+    st.saveBorders(bo, statfiles.source['borders'], i, 4)
 statfiles.myShutdowm()
 print("finish ;)")

@@ -56,9 +56,10 @@ class myStat:
         ro = math.log(const, 10) # round 
         borders = {}
         if (intervals < 2): return -1 #нужное количество интервалов слмшком мало
-        counts['bodyup'] = counts['bodyup'] + counts['bodyzero'] / 2 #разбиваем ноль поровну ;) 
-        counts['bodydown'] = counts['bodydown'] + counts['bodyzero'] / 2
-        counts.pop('bodyzero')
+        if('bodyzero' in counts):
+            counts['bodyup'] = counts['bodyup'] + counts['bodyzero'] / 2 #разбиваем ноль поровну ;) 
+            counts['bodydown'] = counts['bodydown'] + counts['bodyzero'] / 2
+            counts.pop('bodyzero')
         for key in counts:
             borders[key] = [0.0]
         for key in counts: 
@@ -76,8 +77,8 @@ class myStat:
                     borders[key].append(float(key2)/const)
         return borders
     
-    def saveBorders(self, borders, f, candletype):
-        f.write(str(candletype) + "\n")
+    def saveBorders(self, borders, f, candletype, intervals):
+        f.write("--------------------------------" + str(candletype) + " (" +  str(intervals) +" parts)-----------------------------\n")
         for key in borders: 
             f.write(str(key) + ": " + str(borders[key]) + "\n")
             
