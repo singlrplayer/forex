@@ -93,6 +93,7 @@ class myFile:
             if(i in self.Learniles): self.Learniles[i].close()
         self.source['pretext'] = ''
         self.LearnLogF.close()
+        self.source['borders'].close()
 
     def dircreate(self, s,ind):
         path = os.getcwd()

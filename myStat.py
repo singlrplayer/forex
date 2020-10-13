@@ -70,10 +70,10 @@ class myStat:
             else:
                 list_keys.sort()
             i = 0
-            for key2 in list_keys: 
+            for key2 in list_keys:
                 i = i + int(candles[key][key2][0])
                 if(i > count):
-                    i = 0
+                    i = i - count
                     borders[key].append(float(key2)/const)
         return borders
     
