@@ -35,6 +35,7 @@ def getCandleFromSource(s): #извлекаем свечу из строки ф�
         lineVal.candle['low'] = lineVal.lowVal = float(tmp[4])
         lineVal.candle['close'] = lineVal.closeVal = float(tmp[5])
         lineVal.candle['auth'] = 0
+        lineVal.lineEnd = int(tmp[6])
         return lineVal
     except Exception:
         print ("ошибка формата полученной строки: \n " + str(s) + "\nожидается формат: <DTYYYYMMDD>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>")

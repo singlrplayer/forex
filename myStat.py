@@ -27,11 +27,12 @@ class myStat:
             self.statVal[i]['minopen'] = {}
             self.statVal[i]['minclose'] = {}
             self.statVal[i]['vol'] = {}
+            self.statVal[i]['vol1'] = {} #количеситво, либо, если угодно, объем сделок ;)
         return self
 
     def updateVal(self, mydict, key, auth, freq): #если такое значение уже было, то инкриминируем. нет -- добавляем
         if (key in mydict):
-            mydict[key][0] = mydict[key][0] + 1 #количество совпадений цены
+            mydict[key][0] = mydict[key][0] + 1 #количество совпадений
             mydict[key][1] = mydict[key][1] + int(auth) #количество неподнинных свечей (нижнего порядка). неподлинные === не на 100% подлинные
             mydict[key][2] = mydict[key][2] + int(freq) #количество неподлинных минутных свечей в данном значении
         else:
@@ -73,7 +74,8 @@ class myStat:
             for key2 in list_keys:
                 i = i + int(candles[key][key2][0])
                 if(i > count):
-                    i = i - count
+                    #i = i - count #эта строчка позволяет учитывать, либо нет, остаток после пересечения гриницы
+                    i = 0
                     borders[key].append(float(key2)/const)
         return borders
     

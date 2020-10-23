@@ -46,13 +46,14 @@ for i in statfiles.candles: #по всем имеющимся типам све�
         st.updateVal(st.statVal[i]['minopen'], int((y.openVal - y.lowVal) * const), int(y.auth), int(y.freq))
         st.updateVal(st.statVal[i]['minclose'], int((y.closeVal - y.lowVal) * const), int(y.auth), int(y.freq))
         st.updateVal(st.statVal[i]['vol'], int((y.hightVal - y.lowVal) * const), int(y.auth), int(y.freq))
+        st.updateVal(st.statVal[i]['vol1'], int(y.lineEnd * const), int(y.auth), int(y.freq))
         
       
     st.writeVal(st.stat[i], statfiles.StatFiles, 'open', i)
     st.writeVal(st.stat[i], statfiles.StatFiles, 'hight', i)
     st.writeVal(st.stat[i], statfiles.StatFiles, 'low', i)
     st.writeVal(st.stat[i], statfiles.StatFiles, 'close', i)
-    
+
     for key in st.statVal[i]: 
        counter[key] = st.writeVal(st.statVal[i], statfiles.StatFiles, key, i) 
     bo = st.getBorders(counter, 10, st.statVal[i], const)

@@ -72,7 +72,7 @@ def candlecreateASIS(filein, fileout, count):
     y = getCandleFromSource(filein.readline()) #первую строку читаем отдельно, потому как надло запомнить первую свечу
     dt.append(encodeDataTime(y.date, y.time))
     for line in filein:
-        fileout.write(str(y.date) + ','+ str(y.time)+','+str(y.openVal)+','+str(y.hightVal)+','+str(y.lowVal)+','+str(y.closeVal)+'\n') #последовательность записи значений в файл важна!!!!!!!!!
+        fileout.write(str(y.date) + ','+ str(y.time)+','+str(y.openVal)+','+str(y.hightVal)+','+str(y.lowVal)+','+str(y.closeVal)+','+str(y.lineEnd)+'\n') #последовательность записи значений в файл важна!!!!!!!!!
         y = getCandleFromSource(line)
     fileout.seek(0) #дальше нам надо будет читать его с начала
     dt.append(encodeDataTime(y.date, y.time))
