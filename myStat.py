@@ -89,7 +89,7 @@ class myStat:
         for key in candles :
             tmp = 0
             tmp2 = 0
-            r = {"min":0, "max":100000000, "average":0}
+            r = {"min":100000000000, "max":0, "average":0}
             for key2 in candles[key]:
                 if (r["min"] > key2): r["min"] = key2
                 if (r["max"] < key2): r["max"] = key2
