@@ -84,16 +84,17 @@ class myStat:
         for key in borders: 
             f.write(str(key) + ": " + str(borders[key]) + "\n")
             
-    def minmax (self, candles):        
+    def minmax (self, candles, const):        
         res = {}
         for key in candles :
             tmp = 0
             tmp2 = 0
-            r = {"min":100000000000, "max":0, "average":0}
+            r = {"min":100000000000.0, "max":0.0, "average":0.0}
             for key2 in candles[key]:
-                if (r["min"] > key2): r["min"] = key2
-                if (r["max"] < key2): r["max"] = key2
-                tmp = tmp + key2 * candles[key][key2][0] #общая сумма значений
+                tmp3 = key2 / const
+                if (r["min"] > tmp3): r["min"] = tmp3
+                if (r["max"] < tmp3): r["max"] = tmp3 
+                tmp = tmp + tmp3 * candles[key][key2][0] #общая сумма значений
                 tmp2 = tmp2 + candles[key][key2][0] #общее количество свечей
             r["average"] = tmp/tmp2
             res[key] = r

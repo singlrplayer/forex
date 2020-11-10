@@ -76,7 +76,7 @@ for i in statfiles.candles: #по всем имеющимся типам све�
     bo = st.getBorders(counter, 2, st.statVal[i], const)
     st.saveBorders(bo, statfiles.source['borders'], i, 2)
 
-    t = st.minmax(st.statVal[i])
+    t = st.minmax(st.statVal[i], const)
     st.saveBorders(t, statfiles.source['borders'], i, 0)
         
     
