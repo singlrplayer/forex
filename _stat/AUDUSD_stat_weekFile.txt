@@ -208,7 +208,7 @@ open 0.7018 2 0 0
 open 0.6916 2 0 0 
 open 0.6966 1 0 0 
 open 0.6983 1 0 0 
-open 0.7139 2 0 0 
+open 0.7139 3 0 0 
 open 0.7239 1 0 0 
 open 0.7378 1 0 0 
 open 0.7309 1 0 0 
@@ -846,7 +846,7 @@ open 0.7117 1 0 0
 open 0.7095 1 0 0 
 open 0.7194 1 0 0 
 open 0.7313 1 0 0 
-open 0.7233 1 0 0 
+open 0.7233 2 0 0 
 open 0.7346 1 0 0 
 open 0.7195 1 0 0 
 open 0.7175 1 0 0 
@@ -859,7 +859,7 @@ open 0.7249 1 0 0
 open 0.7089 1 0 0 
 open 0.714 2 0 0 
 open 0.7087 1 0 0 
-open 0.7084 1 0 0 
+open 0.7084 2 0 0 
 open 0.7107 1 0 0 
 open 0.7016 1 0 0 
 open 0.6996 1 0 0 
@@ -920,6 +920,8 @@ open 0.7289 1 0 0
 open 0.7282 1 0 0 
 open 0.7291 1 0 0 
 open 0.7032 1 0 0 
+open 0.703 1 0 0 
+open 0.7265 1 0 0 
 hight 0.5961 1 0 0 
 hight 0.5897 1 0 0 
 hight 0.594 1 0 0 
@@ -1113,7 +1115,7 @@ hight 0.708 2 0 0
 hight 0.6996 1 0 0 
 hight 0.703 1 0 0 
 hight 0.7142 1 0 0 
-hight 0.7246 3 0 0 
+hight 0.7246 4 0 0 
 hight 0.7328 1 0 0 
 hight 0.7351 1 0 0 
 hight 0.7145 1 0 0 
@@ -1346,7 +1348,7 @@ hight 0.7092 1 0 0
 hight 0.7194 1 0 0 
 hight 0.7225 1 0 0 
 hight 0.7321 2 0 0 
-hight 0.7237 2 0 0 
+hight 0.7237 3 0 0 
 hight 0.7381 2 0 0 
 hight 0.7707 2 0 0 
 hight 0.771 1 0 0 
@@ -1660,7 +1662,7 @@ hight 0.7327 4 0 0
 hight 0.73 1 0 0 
 hight 0.7048 1 0 0 
 hight 0.7045 1 0 0 
-hight 0.7242 2 0 0 
+hight 0.7242 1 0 0 
 hight 0.7152 1 0 0 
 hight 0.7186 1 0 0 
 hight 0.7258 1 0 0 
@@ -1760,7 +1762,7 @@ hight 0.7305 1 0 0
 hight 0.7316 1 0 0 
 hight 0.7239 1 0 0 
 hight 0.7141 1 0 0 
-hight 0.7161 1 0 0 
+hight 0.7161 2 0 0 
 hight 0.7304 1 0 0 
 hight 0.7339 1 0 0 
 hight 0.7346 1 0 0 
@@ -1843,6 +1845,9 @@ hight 0.7369 1 0 0
 hight 0.7416 1 0 0 
 hight 0.7347 1 0 0 
 hight 0.7212 1 0 0 
+hight 0.716 1 0 0 
+hight 0.7292 1 0 0 
+hight 0.7303 1 0 0 
 low 0.582 1 0 0 
 low 0.5745 1 0 0 
 low 0.5823 1 0 0 
@@ -2121,7 +2126,7 @@ low 0.7347 2 0 0
 low 0.7343 2 0 0 
 low 0.7361 2 0 0 
 low 0.7303 1 0 0 
-low 0.7265 2 0 0 
+low 0.7265 3 0 0 
 low 0.706 1 0 0 
 low 0.7015 2 0 0 
 low 0.7115 1 0 0 
@@ -2583,7 +2588,7 @@ low 0.7042 2 0 0
 low 0.7198 1 0 0 
 low 0.7182 1 0 0 
 low 0.7067 1 0 0 
-low 0.7022 2 0 0 
+low 0.7022 3 0 0 
 low 0.7068 1 0 0 
 low 0.7158 1 0 0 
 low 0.717 1 0 0 
@@ -2704,7 +2709,7 @@ low 0.7055 1 0 0
 low 0.7071 2 0 0 
 low 0.7004 1 0 0 
 low 0.7027 1 0 0 
-low 0.7058 1 0 0 
+low 0.7058 2 0 0 
 low 0.7065 1 0 0 
 low 0.7054 1 0 0 
 low 0.7089 1 0 0 
@@ -2775,6 +2780,8 @@ low 0.7257 1 0 0
 low 0.7009 1 0 0 
 low 0.7029 1 0 0 
 low 0.7098 1 0 0 
+low 0.7005 1 0 0 
+low 0.6994 1 0 0 
 close 0.5844 1 0 0 
 close 0.5867 1 0 0 
 close 0.5882 1 0 0 
@@ -2940,7 +2947,7 @@ close 0.7084 1 0 0
 close 0.7097 1 0 0 
 close 0.7208 2 0 0 
 close 0.7238 2 0 0 
-close 0.7244 1 0 0 
+close 0.7244 2 0 0 
 close 0.7368 2 0 0 
 close 0.7419 3 0 0 
 close 0.736 1 0 0 
@@ -3051,7 +3058,7 @@ close 0.7318 1 0 0
 close 0.7272 1 0 0 
 close 0.7085 2 0 0 
 close 0.7162 1 0 0 
-close 0.7261 1 0 0 
+close 0.7261 2 0 0 
 close 0.7277 1 0 0 
 close 0.7593 1 0 0 
 close 0.772 1 0 0 
@@ -3520,7 +3527,7 @@ close 0.729 1 0 0
 close 0.6951 3 0 0 
 close 0.686 1 0 0 
 close 0.7005 1 0 0 
-close 0.7083 1 0 0 
+close 0.7083 2 0 0 
 close 0.7067 1 0 0 
 close 0.7109 1 0 0 
 close 0.7149 1 0 0 
@@ -3707,9 +3714,10 @@ close 0.7163 1 0 0
 close 0.7284 1 0 0 
 close 0.7285 1 0 0 
 close 0.7292 1 0 0 
-close 0.7031 1 0 0 
+close 0.7031 2 0 0 
 close 0.7164 1 0 0 
-close 0.7236 1 0 0 
+close 0.714 1 0 0 
+close 0.7287 1 0 0 
 bodyzero 0 18 0 0 
 bodyup 28 5 0 0 
 bodyup 31 4 0 0 
@@ -3743,7 +3751,7 @@ bodyup 30 9 0 0
 bodyup 12 5 0 0 
 bodyup 97 3 0 0 
 bodyup 20 7 0 0 
-bodyup 21 3 0 0 
+bodyup 21 4 0 0 
 bodyup 60 4 0 0 
 bodyup 22 2 0 0 
 bodyup 47 3 0 0 
@@ -3844,7 +3852,7 @@ bodyup 164 1 0 0
 bodyup 75 3 0 0 
 bodyup 61 5 0 0 
 bodyup 6 4 0 0 
-bodyup 76 4 0 0 
+bodyup 76 5 0 0 
 bodyup 151 2 0 0 
 bodyup 518 1 0 0 
 bodyup 173 1 0 0 
@@ -3912,7 +3920,7 @@ bodyup 229 1 0 0
 bodyup 4 1 0 0 
 bodyup 91 2 0 0 
 bodyup 135 2 0 0 
-bodyup 68 3 0 0 
+bodyup 68 2 0 0 
 bodyup 71 1 0 0 
 bodyup 48 1 0 0 
 bodyup 11 1 0 0 
@@ -3921,6 +3929,8 @@ bodyup 369 1 0 0
 bodyup 332 1 0 0 
 bodyup 302 1 0 0 
 bodyup 19 1 0 0 
+bodyup 55 1 0 0 
+bodyup 231 1 0 0 
 bodydown -67 1 0 0 
 bodydown -3 8 0 0 
 bodydown -76 4 0 0 
@@ -3972,11 +3982,11 @@ bodydown -38 3 0 0
 bodydown -23 1 0 0 
 bodydown -25 1 0 0 
 bodydown -42 3 0 0 
-bodydown -150 1 0 0 
+bodydown -150 2 0 0 
 bodydown -70 6 0 0 
 bodydown -69 4 0 0 
 bodydown -192 2 0 0 
-bodydown -108 4 0 0 
+bodydown -108 5 0 0 
 bodydown -40 2 0 0 
 bodydown -9 3 0 0 
 bodydown -135 2 0 0 
@@ -4139,7 +4149,7 @@ bodydown -164 1 0 0
 bodydown -102 1 0 0 
 bodydown -260 1 0 0 
 up 49 9 0 0 
-up 30 29 0 0 
+up 30 30 0 0 
 up 58 10 0 0 
 up 8 13 0 0 
 up 44 9 0 0 
@@ -4163,7 +4173,7 @@ up 31 10 0 0
 up 39 12 0 0 
 up 35 9 0 0 
 up 22 12 0 0 
-up 3 14 0 0 
+up 3 15 0 0 
 up 84 7 0 0 
 up 7 14 0 0 
 up 29 15 0 0 
@@ -4180,12 +4190,12 @@ up 61 5 0 0
 up 95 5 0 0 
 up 55 7 0 0 
 up 88 3 0 0 
-up 15 24 0 0 
+up 15 25 0 0 
 up 4 12 0 0 
 up 70 12 0 0 
 up 62 7 0 0 
 up 46 10 0 0 
-up 20 26 0 0 
+up 20 28 0 0 
 up 9 17 0 0 
 up 74 4 0 0 
 up 19 12 0 0 
@@ -4199,7 +4209,7 @@ up 129 1 0 0
 up 93 1 0 0 
 up 13 12 0 0 
 up 12 16 0 0 
-up 5 14 0 0 
+up 5 13 0 0 
 up 23 10 0 0 
 up 128 2 0 0 
 up 59 13 0 0 
@@ -4240,7 +4250,7 @@ up 102 3 0 0
 up 75 4 0 0 
 up 188 1 0 0 
 up 97 3 0 0 
-up 1 5 0 0 
+up 1 6 0 0 
 up 207 1 0 0 
 up 145 2 0 0 
 up 71 2 0 0 
@@ -4318,8 +4328,8 @@ down 40 17 0 0
 down 47 9 0 0 
 down 74 2 0 0 
 down 37 12 0 0 
-down 25 15 0 0 
-down 61 7 0 0 
+down 25 17 0 0 
+down 61 8 0 0 
 down 70 12 0 0 
 down 56 6 0 0 
 down 43 9 0 0 
@@ -4360,7 +4370,7 @@ down 22 14 0 0
 down 55 9 0 0 
 down 10 27 0 0 
 down 131 3 0 0 
-down 35 12 0 0 
+down 35 13 0 0 
 down 8 15 0 0 
 down 3 18 0 0 
 down 63 9 0 0 
@@ -4402,7 +4412,7 @@ down 53 6 0 0
 down 91 3 0 0 
 down 5 6 0 0 
 down 92 3 0 0 
-down 0 11 0 0 
+down 0 12 0 0 
 down 49 9 0 0 
 down 95 4 0 0 
 down 117 3 0 0 
@@ -4501,7 +4511,7 @@ upopen 191 5 0 0
 upopen 150 3 0 0 
 upopen 40 16 0 0 
 upopen 148 4 0 0 
-upopen 37 6 0 0 
+upopen 37 7 0 0 
 upopen 145 5 0 0 
 upopen 14 15 0 0 
 upopen 31 7 0 0 
@@ -4535,13 +4545,13 @@ upopen 125 3 0 0
 upopen 62 4 0 0 
 upopen 25 5 0 0 
 upopen 104 2 0 0 
-upopen 20 13 0 0 
+upopen 20 14 0 0 
 upopen 69 6 0 0 
 upopen 9 6 0 0 
 upopen 106 6 0 0 
 upopen 74 5 0 0 
 upopen 19 6 0 0 
-upopen 76 7 0 0 
+upopen 76 8 0 0 
 upopen 16 3 0 0 
 upopen 82 8 0 0 
 upopen 28 8 0 0 
@@ -4558,7 +4568,7 @@ upopen 91 3 0 0
 upopen 146 2 0 0 
 upopen 108 5 0 0 
 upopen 147 3 0 0 
-upopen 3 2 0 0 
+upopen 3 3 0 0 
 upopen 126 4 0 0 
 upopen 13 4 0 0 
 upopen 119 6 0 0 
@@ -4572,7 +4582,7 @@ upopen 26 7 0 0
 upopen 5 5 0 0 
 upopen 46 9 0 0 
 upopen 172 4 0 0 
-upopen 78 9 0 0 
+upopen 78 10 0 0 
 upopen 71 4 0 0 
 upopen 94 8 0 0 
 upopen 122 5 0 0 
@@ -4619,7 +4629,7 @@ upopen 204 2 0 0
 upopen 183 4 0 0 
 upopen 11 9 0 0 
 upopen 116 2 0 0 
-upopen 73 6 0 0 
+upopen 73 5 0 0 
 upopen 222 2 0 0 
 upopen 85 4 0 0 
 upopen 87 3 0 0 
@@ -4738,8 +4748,9 @@ upopen 395 1 0 0
 upopen 353 1 0 0 
 upopen 196 1 0 0 
 upopen 346 1 0 0 
+upopen 262 1 0 0 
 upclose 116 4 0 0 
-upclose 30 16 0 0 
+upclose 30 17 0 0 
 upclose 58 5 0 0 
 upclose 11 13 0 0 
 upclose 107 4 0 0 
@@ -4811,11 +4822,11 @@ upclose 21 8 0 0
 upclose 72 2 0 0 
 upclose 40 15 0 0 
 upclose 34 5 0 0 
-upclose 15 13 0 0 
+upclose 15 14 0 0 
 upclose 123 4 0 0 
 upclose 168 3 0 0 
 upclose 74 4 0 0 
-upclose 129 2 0 0 
+upclose 129 3 0 0 
 upclose 211 3 0 0 
 upclose 93 4 0 0 
 upclose 41 7 0 0 
@@ -4825,12 +4836,12 @@ upclose 57 3 0 0
 upclose 65 5 0 0 
 upclose 16 15 0 0 
 upclose 35 6 0 0 
-upclose 5 9 0 0 
+upclose 5 8 0 0 
 upclose 13 8 0 0 
 upclose 23 7 0 0 
 upclose 192 3 0 0 
 upclose 118 5 0 0 
-upclose 20 16 0 0 
+upclose 20 17 0 0 
 upclose 24 5 0 0 
 upclose 67 8 0 0 
 upclose 28 5 0 0 
@@ -4903,7 +4914,7 @@ upclose 145 4 0 0
 upclose 188 3 0 0 
 upclose 155 3 0 0 
 upclose 426 1 0 0 
-upclose 1 3 0 0 
+upclose 1 4 0 0 
 upclose 127 3 0 0 
 upclose 259 1 0 0 
 upclose 32 3 0 0 
@@ -4970,7 +4981,7 @@ upclose 233 1 0 0
 upclose 169 2 0 0 
 upclose 152 1 0 0 
 upclose 200 2 0 0 
-upclose 153 1 0 0 
+upclose 153 2 0 0 
 upclose 216 1 0 0 
 upclose 119 3 0 0 
 upclose 154 2 0 0 
@@ -5079,7 +5090,7 @@ minopen 38 6 0 0
 minopen 83 4 0 0 
 minopen 155 2 0 0 
 minopen 32 6 0 0 
-minopen 35 10 0 0 
+minopen 35 11 0 0 
 minopen 70 10 0 0 
 minopen 9 6 0 0 
 minopen 43 6 0 0 
@@ -5134,7 +5145,7 @@ minopen 327 2 0 0
 minopen 332 1 0 0 
 minopen 331 1 0 0 
 minopen 226 2 0 0 
-minopen 175 2 0 0 
+minopen 175 3 0 0 
 minopen 211 5 0 0 
 minopen 192 2 0 0 
 minopen 300 2 0 0 
@@ -5168,11 +5179,11 @@ minopen 234 1 0 0
 minopen 105 3 0 0 
 minopen 69 5 0 0 
 minopen 174 2 0 0 
-minopen 0 7 0 0 
+minopen 0 8 0 0 
 minopen 138 3 0 0 
 minopen 42 7 0 0 
 minopen 215 1 0 0 
-minopen 61 5 0 0 
+minopen 61 6 0 0 
 minopen 49 3 0 0 
 minopen 95 3 0 0 
 minopen 216 2 0 0 
@@ -5194,7 +5205,7 @@ minopen 298 1 0 0
 minopen 31 8 0 0 
 minopen 110 3 0 0 
 minopen 423 1 0 0 
-minopen 133 2 0 0 
+minopen 133 3 0 0 
 minopen 98 6 0 0 
 minopen 150 3 0 0 
 minopen 181 2 0 0 
@@ -5346,7 +5357,7 @@ minclose 16 8 0 0
 minclose 67 7 0 0 
 minclose 56 4 0 0 
 minclose 73 4 0 0 
-minclose 21 11 0 0 
+minclose 21 12 0 0 
 minclose 52 9 0 0 
 minclose 42 9 0 0 
 minclose 227 1 0 0 
@@ -5380,7 +5391,7 @@ minclose 71 5 0 0
 minclose 131 8 0 0 
 minclose 126 2 0 0 
 minclose 54 9 0 0 
-minclose 25 10 0 0 
+minclose 25 12 0 0 
 minclose 64 5 0 0 
 minclose 65 7 0 0 
 minclose 82 4 0 0 
@@ -5419,7 +5430,7 @@ minclose 152 2 0 0
 minclose 246 2 0 0 
 minclose 192 3 0 0 
 minclose 201 3 0 0 
-minclose 138 5 0 0 
+minclose 138 4 0 0 
 minclose 143 3 0 0 
 minclose 85 3 0 0 
 minclose 19 6 0 0 
@@ -5451,11 +5462,11 @@ minclose 223 2 0 0
 minclose 35 3 0 0 
 minclose 9 7 0 0 
 minclose 89 5 0 0 
-minclose 146 1 0 0 
+minclose 146 2 0 0 
 minclose 173 2 0 0 
 minclose 168 2 0 0 
 minclose 96 3 0 0 
-minclose 117 2 0 0 
+minclose 117 3 0 0 
 minclose 28 3 0 0 
 minclose 125 2 0 0 
 minclose 77 3 0 0 
@@ -5468,7 +5479,7 @@ minclose 300 1 0 0
 minclose 381 2 0 0 
 minclose 247 1 0 0 
 minclose 393 3 0 0 
-minclose 266 1 0 0 
+minclose 266 2 0 0 
 minclose 433 1 0 0 
 minclose 225 2 0 0 
 minclose 282 3 0 0 
@@ -5583,7 +5594,7 @@ vol 230 3 0 0
 vol 70 7 0 0 
 vol 223 3 0 0 
 vol 216 6 0 0 
-vol 154 5 0 0 
+vol 154 6 0 0 
 vol 112 9 0 0 
 vol 188 6 0 0 
 vol 87 4 0 0 
@@ -5618,7 +5629,7 @@ vol 169 5 0 0
 vol 128 1 0 0 
 vol 129 4 0 0 
 vol 110 10 0 0 
-vol 138 5 0 0 
+vol 138 6 0 0 
 vol 123 4 0 0 
 vol 102 8 0 0 
 vol 97 5 0 0 
@@ -5693,7 +5704,7 @@ vol 144 9 0 0
 vol 198 4 0 0 
 vol 190 5 0 0 
 vol 171 7 0 0 
-vol 179 4 0 0 
+vol 179 5 0 0 
 vol 385 1 0 0 
 vol 301 4 0 0 
 vol 256 3 0 0 
@@ -5703,7 +5714,7 @@ vol 106 3 0 0
 vol 162 6 0 0 
 vol 157 4 0 0 
 vol 195 4 0 0 
-vol 148 5 0 0 
+vol 148 6 0 0 
 vol 209 4 0 0 
 vol 160 7 0 0 
 vol 246 4 0 0 
@@ -5738,7 +5749,7 @@ vol 266 5 0 0
 vol 427 1 0 0 
 vol 437 1 0 0 
 vol 235 2 0 0 
-vol 297 1 0 0 
+vol 297 2 0 0 
 vol 336 1 0 0 
 vol 343 2 0 0 
 vol 192 3 0 0 
@@ -5852,7 +5863,7 @@ vol 288 1 0 0
 vol 145 5 0 0 
 vol 180 5 0 0 
 vol 307 1 0 0 
-vol 143 6 0 0 
+vol 143 5 0 0 
 vol 146 4 0 0 
 vol 255 1 0 0 
 vol 305 1 0 0 
@@ -5896,6 +5907,7 @@ vol 499 1 0 0
 vol 234 1 0 0 
 vol 375 1 0 0 
 vol 318 1 0 0 
+vol 37 1 0 0 
 vol1 5290000 1 0 0 
 vol1 6050000 2 0 0 
 vol1 6200000 1 0 0 
@@ -6936,4 +6948,9 @@ vol1 398540000 1 0 0
 vol1 371620000 1 0 0 
 vol1 354680000 1 0 0 
 vol1 367870000 1 0 0 
-vol1 340030000 1 0 0 
+vol1 348240000 1 0 0 
+vol1 352930000 1 0 0 
+vol1 355870000 1 0 0 
+vol1 377830000 1 0 0 
+vol1 454220000 1 0 0 
+vol1 28450000 1 0 0 

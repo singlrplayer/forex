@@ -55,7 +55,8 @@ for i in statfiles.candles: #по всем имеющимся типам све�
     st.writeVal(st.stat[i], statfiles.StatFiles, 'close', i)
 
     for key in st.statVal[i]: 
-       counter[key] = st.writeVal(st.statVal[i], statfiles.StatFiles, key, i) 
+       counter[key] = st.writeVal(st.statVal[i], statfiles.StatFiles, key, i)
+       
     bo = st.getBorders(counter, 10, st.statVal[i], const)
     st.saveBorders(bo, statfiles.source['borders'], i, 10)
     bo = st.getBorders(counter, 9, st.statVal[i], const)
@@ -74,5 +75,10 @@ for i in statfiles.candles: #по всем имеющимся типам све�
     st.saveBorders(bo, statfiles.source['borders'], i, 3)
     bo = st.getBorders(counter, 2, st.statVal[i], const)
     st.saveBorders(bo, statfiles.source['borders'], i, 2)
+
+    t = st.minmax(st.statVal[i])
+    st.saveBorders(t, statfiles.source['borders'], i, 0)
+        
+    
 statfiles.myShutdowm()
 print("finish ;)")
