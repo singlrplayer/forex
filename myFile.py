@@ -40,6 +40,7 @@ class myFile:
                 #os.chdir(path)
         os.chdir(path)
         self.source['borders'] = open("borsers.txt", "w")
+        self.source['borders'].write(str(currency) + '\n')
 
 
 

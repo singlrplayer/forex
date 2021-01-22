@@ -39,6 +39,8 @@ for i in statfiles.candles: #по всем имеющимся типам све�
         else:
             tmp = int((y.hightVal - y.closeVal) * const)
             tmp1 = int((y.openVal - y.lowVal) * const)
+
+        #ГОСТ 5812-82
         st.updateVal(st.statVal[i]['up'], int(tmp), int(y.auth), int(y.freq))
         st.updateVal(st.statVal[i]['down'], int(tmp1), int(y.auth), int(y.freq))
         st.updateVal(st.statVal[i]['upopen'], int((y.hightVal - y.openVal) * const), int(y.auth), int(y.freq))
@@ -47,7 +49,7 @@ for i in statfiles.candles: #по всем имеющимся типам све�
         st.updateVal(st.statVal[i]['minclose'], int((y.closeVal - y.lowVal) * const), int(y.auth), int(y.freq))
         st.updateVal(st.statVal[i]['vol'], int((y.hightVal - y.lowVal) * const), int(y.auth), int(y.freq))
         st.updateVal(st.statVal[i]['vol1'], int(y.lineEnd * const), int(y.auth), int(y.freq))
-        
+        #end ГОСТ 5812-82
       
     st.writeVal(st.stat[i], statfiles.StatFiles, 'open', i)
     st.writeVal(st.stat[i], statfiles.StatFiles, 'hight', i)
@@ -57,6 +59,7 @@ for i in statfiles.candles: #по всем имеющимся типам све�
     for key in st.statVal[i]: 
        counter[key] = st.writeVal(st.statVal[i], statfiles.StatFiles, key, i)
        
+    
     bo = st.getBorders(counter, 10, st.statVal[i], const)
     st.saveBorders(bo, statfiles.source['borders'], i, 10)
     bo = st.getBorders(counter, 9, st.statVal[i], const)
