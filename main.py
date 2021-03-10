@@ -3,11 +3,13 @@ from myFile import myFile
 from myStat import myStat
 from myParsLine import getCandleFrom
 from decimal import *
+from updMytime import *
 
 statfiles = myFile('AUDUSD')
 for i in statfiles.candles: #по всем имеющимся типам свечей
     if(statfiles.QfilePath[i] == ''): continue
     f = candlecreateASIS(statfiles.Qfiles[i], statfiles.TmpFiles[i], 1000) #сделали файлы со свечами всех нужных типов без пробелов
+    statfiles.source['borders'].write(str(i) + " intreval: [" + str(decodeDataTime(f[0])) + " - " + str(decodeDataTime(f[1])) + ']\n') #не самое изящное решение, но обрабатываемые интервалы лучше иметь под рукой
 statfiles = statfiles.getStatFiles() #подготовка файлов для записи статистики
 #f = candlecreate() #сделали файлы со свечами всех нужных типов без пробелов
 st = myStat()
