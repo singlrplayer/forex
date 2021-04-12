@@ -62,12 +62,12 @@ for i in statfiles.candles: #по всем имеющимся типам све�
        counter[key] = st.writeVal(st.statVal[i], statfiles.StatFiles, key, i)
        
     
-    bo = st.getBorders(counter, 10, st.statVal[i], const)
+    """bo = st.getBorders(counter, 10, st.statVal[i], const)
     st.saveBorders(bo, statfiles.source['borders'], i, 10)
     bo = st.getBorders(counter, 9, st.statVal[i], const)
     st.saveBorders(bo, statfiles.source['borders'], i, 9)
     bo = st.getBorders(counter, 8, st.statVal[i], const)
-    st.saveBorders(bo, statfiles.source['borders'], i, 8)
+    st.saveBorders(bo, statfiles.source['borders'], i, 8)"""
     bo = st.getBorders(counter, 7, st.statVal[i], const)
     st.saveBorders(bo, statfiles.source['borders'], i, 7)
     bo = st.getBorders(counter, 6, st.statVal[i], const)
