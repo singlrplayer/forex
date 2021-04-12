@@ -259,6 +259,7 @@ open 0.7345 1 0 0
 open 0.7704 1 0 0 
 open 0.7623 1 0 0 
 open 0.7714 1 0 0 
+open 0.7598 1 0 0 
 hight 0.648 1 0 0 
 hight 0.6381 1 0 0 
 hight 0.6458 1 0 0 
@@ -523,7 +524,8 @@ hight 0.741 1 0 0
 hight 0.7745 1 0 0 
 hight 0.7823 1 0 0 
 hight 0.801 1 0 0 
-hight 0.7841 1 0 0 
+hight 0.7852 1 0 0 
+hight 0.768 1 0 0 
 low 0.621 1 0 0 
 low 0.606 1 0 0 
 low 0.6195 1 0 0 
@@ -784,8 +786,8 @@ low 0.7005 1 0 0
 low 0.6994 1 0 0 
 low 0.7342 1 0 0 
 low 0.7595 1 0 0 
-low 0.7566 1 0 0 
-low 0.7689 1 0 0 
+low 0.7566 2 0 0 
+low 0.7535 1 0 0 
 close 0.6284 1 0 0 
 close 0.6114 1 0 0 
 close 0.6303 1 0 0 
@@ -1051,7 +1053,8 @@ close 0.7031 1 0 0
 close 0.7346 1 0 0 
 close 0.7702 1 0 0 
 close 0.7645 1 0 0 
-close 0.7704 1 0 0 
+close 0.7599 1 0 0 
+close 0.7615 1 0 0 
 bodyzero 0 1 0 0 
 bodyup 35 1 0 0 
 bodyup 87 1 0 0 
@@ -1174,6 +1177,7 @@ bodyup 158 1 0 0
 bodyup 240 1 0 0 
 bodyup 356 1 0 0 
 bodyup 82 1 0 0 
+bodyup 16 1 0 0 
 bodydown -164 1 0 0 
 bodydown -121 1 0 0 
 bodydown -110 3 0 0 
@@ -1196,7 +1200,7 @@ bodydown -50 2 0 0
 bodydown -8 1 0 0 
 bodydown -371 1 0 0 
 bodydown -116 1 0 0 
-bodydown -10 2 0 0 
+bodydown -10 1 0 0 
 bodydown -39 1 0 0 
 bodydown -205 1 0 0 
 bodydown -74 1 0 0 
@@ -1286,6 +1290,7 @@ bodydown -323 1 0 0
 bodydown -369 1 0 0 
 bodydown -213 1 0 0 
 bodydown -59 1 0 0 
+bodydown -114 1 0 0 
 up 196 1 0 0 
 up 101 2 0 0 
 up 155 2 0 0 
@@ -1400,7 +1405,7 @@ up 60 2 0 0
 up 221 1 0 0 
 up 36 3 0 0 
 up 92 1 0 0 
-up 65 2 0 0 
+up 65 3 0 0 
 up 87 2 0 0 
 up 109 1 0 0 
 up 245 1 0 0 
@@ -1438,7 +1443,7 @@ up 182 1 0 0
 up 58 1 0 0 
 up 28 1 0 0 
 up 304 1 0 0 
-up 127 1 0 0 
+up 138 1 0 0 
 down 38 5 0 0 
 down 54 3 0 0 
 down 20 4 0 0 
@@ -1469,7 +1474,7 @@ down 82 3 0 0
 down 41 5 0 0 
 down 30 7 0 0 
 down 89 2 0 0 
-down 14 3 0 0 
+down 14 2 0 0 
 down 95 3 0 0 
 down 2 2 0 0 
 down 26 3 0 0 
@@ -1503,7 +1508,7 @@ down 85 4 0 0
 down 198 1 0 0 
 down 87 2 0 0 
 down 13 3 0 0 
-down 32 3 0 0 
+down 32 4 0 0 
 down 132 1 0 0 
 down 146 1 0 0 
 down 39 3 0 0 
@@ -1565,7 +1570,7 @@ down 27 1 0 0
 down 105 1 0 0 
 down 59 1 0 0 
 down 15 1 0 0 
-down 63 3 0 0 
+down 63 4 0 0 
 down 103 1 0 0 
 down 42 2 0 0 
 down 130 2 0 0 
@@ -1675,7 +1680,7 @@ upopen 450 1 0 0
 upopen 202 1 0 0 
 upopen 243 1 0 0 
 upopen 59 1 0 0 
-upopen 81 2 0 0 
+upopen 81 3 0 0 
 upopen 302 1 0 0 
 upopen 163 3 0 0 
 upopen 44 1 0 0 
@@ -1791,7 +1796,7 @@ upopen 395 1 0 0
 upopen 324 1 0 0 
 upopen 266 1 0 0 
 upopen 387 1 0 0 
-upopen 127 1 0 0 
+upopen 138 1 0 0 
 upclose 196 1 0 0 
 upclose 266 2 0 0 
 upclose 155 2 0 0 
@@ -1807,7 +1812,7 @@ upclose 275 1 0 0
 upclose 117 3 0 0 
 upclose 2 2 0 0 
 upclose 306 2 0 0 
-upclose 252 3 0 0 
+upclose 252 4 0 0 
 upclose 264 1 0 0 
 upclose 249 1 0 0 
 upclose 141 2 0 0 
@@ -1922,7 +1927,7 @@ upclose 1110 1 0 0
 upclose 221 1 0 0 
 upclose 283 2 0 0 
 upclose 164 2 0 0 
-upclose 65 1 0 0 
+upclose 65 2 0 0 
 upclose 467 1 0 0 
 upclose 43 1 0 0 
 upclose 695 1 0 0 
@@ -1986,7 +1991,6 @@ upclose 28 1 0 0
 upclose 215 1 0 0 
 upclose 178 1 0 0 
 upclose 304 1 0 0 
-upclose 137 1 0 0 
 minopen 38 2 0 0 
 minopen 219 1 0 0 
 minopen 20 4 0 0 
@@ -2163,7 +2167,7 @@ minopen 57 1 0 0
 minopen 144 1 0 0 
 minopen 206 1 0 0 
 minopen 123 1 0 0 
-minopen 63 1 0 0 
+minopen 63 2 0 0 
 minopen 294 1 0 0 
 minopen 118 2 0 0 
 minopen 244 1 0 0 
@@ -2187,7 +2191,7 @@ minopen 61 1 0 0
 minopen 368 1 0 0 
 minopen 156 1 0 0 
 minopen 56 1 0 0 
-minopen 24 1 0 0 
+minopen 147 1 0 0 
 minclose 73 2 0 0 
 minclose 54 3 0 0 
 minclose 107 1 0 0 
@@ -2260,7 +2264,7 @@ minclose 154 2 0 0
 minclose 198 2 0 0 
 minclose 87 1 0 0 
 minclose 90 1 0 0 
-minclose 32 2 0 0 
+minclose 32 3 0 0 
 minclose 132 1 0 0 
 minclose 267 1 0 0 
 minclose 477 1 0 0 
@@ -2382,7 +2386,7 @@ minclose 296 1 0 0
 minclose 265 1 0 0 
 minclose 300 1 0 0 
 minclose 360 1 0 0 
-minclose 14 1 0 0 
+minclose 80 1 0 0 
 vol 270 1 0 0 
 vol 321 2 0 0 
 vol 262 4 0 0 
@@ -2586,7 +2590,8 @@ vol 407 1 0 0
 vol 241 1 0 0 
 vol 415 1 0 0 
 vol 228 1 0 0 
-vol 151 1 0 0 
+vol 285 1 0 0 
+vol 145 1 0 0 
 vol1 26850000 1 0 0 
 vol1 27660000 1 0 0 
 vol1 25640000 1 0 0 
@@ -2855,4 +2860,5 @@ vol1 1562120000 1 0 0
 vol1 1460320000 1 0 0 
 vol1 1563060000 1 0 0 
 vol1 1515070000 1 0 0 
-vol1 417080000 1 0 0 
+vol1 1927360000 1 0 0 
+vol1 430620000 1 0 0 
