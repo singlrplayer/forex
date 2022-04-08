@@ -74,8 +74,8 @@ class myStat:
             for key2 in list_keys:
                 i = i + int(candles[key][key2][0])
                 if(i > count):
-                    i = i - count #эта строчка позволяет учитывать, либо нет, остаток после пересечения гриницы
-                    #i = 0
+                    #i = i - count #эта строчка позволяет учитывать, либо нет, остаток после пересечения гриницы
+                    i = 0
                     borders[key].append(float(key2)/const)
         return borders
     
